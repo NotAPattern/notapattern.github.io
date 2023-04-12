@@ -1,0 +1,16 @@
+@use "../text/Text.module"
+
+.Chip
+  @extend .Text
+  transition: background-color .14s ease-out, color 0.14s ease-out
+  border-radius: 2rem
+  padding: 0.25rem 1rem
+  border: none
+
+  &_theme_light
+    background-color: #E4E4E4
+    &:hover
+      background-color: #cbcbcb
+
+  &_selected
+    background-color: #FCCD4D
