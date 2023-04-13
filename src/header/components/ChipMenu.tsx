@@ -8,13 +8,13 @@ export type ChipMenuProps = {
 
 const ChipMenu: Component<ChipMenuProps> = (props) => {
   return (
-    <div
+    <nav
       classList={{
         [styles.ChipMenu]: true,
       }}
     >
       {props.children}
-    </div>
+    </nav>
   );
 };
 

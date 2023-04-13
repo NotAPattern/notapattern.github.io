@@ -3,7 +3,7 @@ import { Component, JSX } from "solid-js";
 import { Breakpoint, Theme } from "../../shared/types";
 import { useTheme } from "@uikit/themeProvider/ThemeProvider";
 
-export type HeaderProps = {
+export type TimelineProps = {
   size?: Breakpoint;
   leftIcon?: JSX.Element;
   theme?: Theme;
@@ -13,21 +13,15 @@ export type HeaderProps = {
   href?: string;
 };
 
-const headerThemeStrategy: { [k in Theme]: CSSModuleClasses[string] } = {
+const timelineThemeStrategy: { [k in Theme]: CSSModuleClasses[string] } = {
   light: styles.Header_theme_light,
   dark: styles.Header_theme_dark,
 };
 
-const Header: Component<HeaderProps> = (props) => {
+const Timeline: Component<TimelineProps> = (props) => {
   const theme: Theme = props.theme ?? useTheme()?.[0]() ?? "light";
 
-  return (
-    <h1
-      classList={{ [styles.Header]: true, [headerThemeStrategy[theme]]: true }}
-    >
-      Notapattern
-    </h1>
-  );
+  return <section classList={{}}>{props.children}</section>;
 };
 
-export default Header;
+export default Timeline;

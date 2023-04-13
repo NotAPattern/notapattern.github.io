@@ -1,71 +1,44 @@
-import {
-  Component,
-  For,
-  Match,
-  Switch,
-  createEffect,
-  createSignal,
-  on,
-} from "solid-js";
-import Chip from "@uikit/chip/Chip";
-
-import * as chipStyles from "@uikit/chip/Chip.module.sass";
+import { Component, createSignal } from "solid-js";
 import styles from "./App.module.sass";
-import { ThemeProvider } from "@uikit/themeProvider/ThemeProvider";
 import Header from "./header/components/Header";
 import Greetings from "./header/components/Greetings";
 import ChipMenu from "./header/components/ChipMenu";
+import Chip from "@uikit/chip/Chip";
+import Timeline from "./header/components/Timeline";
+import { Theme } from "./shared/types";
+import { useTheme } from "./uikit/themeProvider/ThemeProvider";
 
 export type TimelineSection = "workProjects" | "events" | "aboutMe";
+
+const appThemeStrategy: { [k in Theme]: CSSModuleClasses[string] } = {
+  light: styles.App_theme_light,
+  dark: styles.App_theme_dark,
+};
 
 const App: Component = () => {
   const [timelineSection, setTimelineSection] =
     createSignal<TimelineSection>("workProjects");
 
-  const [render, setRender] = createSignal<number>(0);
-
-  createEffect(() => {
-    timelineSection();
-    console.log(
-      "Count of rerender:",
-      setRender((r) => r + 1)
-    );
-  });
-
-  const section = timelineSection();
+  const [theme, setTheme] = useTheme()!;
 
   return (
-    <ThemeProvider theme={"light"}>
-      <div class={styles.App}>
-        <header class={styles.header}>
-          <Header>NOTAPATTERN</Header>
-          <Greetings>
-            👋 <br></br>Я – Никита Карацев, <br></br>
-            Сайт про меня 👨‍💻 <br></br>и мои достижения. 🏆
-          </Greetings>
-          <ChipMenu>
-            <Chip
-              selected={timelineSection() === "workProjects"}
-              onClick={() => setTimelineSection("workProjects")}
-            >
-              {section}
-              {/* Рабочие проекты */}
-            </Chip>
-            <Chip
-              selected={timelineSection() === "events"}
-              onClick={() => setTimelineSection("events")}
-            >
-              Мероприятия
-            </Chip>
-            <Chip onClick={() => setTimelineSection("aboutMe")}>
-              Личная жизнь
-            </Chip>
-          </ChipMenu>
-          {/* <img src={logo} class={styles.logo} alt="logo" /> */}
-          {/* <p>
+    <div classList={{ [styles.App]: true, [appThemeStrategy[theme()]]: true }}>
+      <header class={styles.header}>
+        <Header>NOTAPATTERN</Header>
+        <Greetings>
+          👋 <br></br>Я – Никита Карацев, <br></br>
+          Сайт про меня 👨‍💻 <br></br>и мои достижения. 🏆
+        </Greetings>
+        <button
+          onClick={() => setTheme(theme() === "light" ? "dark" : "light")}
+        >
+          Change theme
+        </button>
+        {/* <img src={logo} class={styles.logo} alt="logo" /> */}
+        {/* <p>
             Edit <code>src/App.tsx</code> and save to reload.
           </p> */}
-          {/* <a
+        {/* <a
             class={styles.link}
             href="https://github.com/solidjs/solid"
             target="_blank"
@@ -73,9 +46,31 @@ const App: Component = () => {
           >
             Learn Solid
           </a> */}
-        </header>
-      </div>
-    </ThemeProvider>
+      </header>
+      <ChipMenu>
+        <Chip
+          selected={timelineSection() === "workProjects"}
+          onClick={() => setTimelineSection("workProjects")}
+        >
+          Рабочие проекты
+        </Chip>
+        <Chip
+          selected={timelineSection() === "events"}
+          onClick={() => setTimelineSection("events")}
+        >
+          Мероприятия
+        </Chip>
+        <Chip
+          selected={timelineSection() === "aboutMe"}
+          onClick={() => setTimelineSection("aboutMe")}
+        >
+          Обо мне
+        </Chip>
+      </ChipMenu>
+      <main>
+        <Timeline>asdad</Timeline>
+      </main>
+    </div>
   );
 };
 
