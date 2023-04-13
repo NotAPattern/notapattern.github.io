@@ -1,0 +1,15 @@
+@import "@shared/breakpoints.sass"
+
+.ChipMenu
+  display: flex
+  justify-content: flex-start
+  gap: 1rem
+  align-items: center
+  margin: 0
+  margin-top: 1rem
+  +for-phone
+    flex-direction: column
+    margin-top: 2rem
+  +for-tablet
+    flex-direction: row
+    margin-top: 1rem

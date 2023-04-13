@@ -1,5 +1,6 @@
-import { defineConfig } from 'vite';
-import solidPlugin from 'vite-plugin-solid';
+import { defineConfig } from "vite";
+import solidPlugin from "vite-plugin-solid";
+const path = require("path");
 
 export default defineConfig({
   plugins: [solidPlugin()],
@@ -7,6 +8,12 @@ export default defineConfig({
     port: 3000,
   },
   build: {
-    target: 'esnext',
+    target: "esnext",
+  },
+  resolve: {
+    alias: {
+      "@uikit": path.resolve(__dirname, "./src/uikit"),
+      "@shared": path.resolve(__dirname, "./src/shared"),
+    },
   },
 });

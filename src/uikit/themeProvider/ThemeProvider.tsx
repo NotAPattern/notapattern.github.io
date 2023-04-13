@@ -4,13 +4,11 @@ import {
   useContext,
   JSX,
   Accessor,
+  Setter,
 } from "solid-js";
 import { Theme } from "../../shared/types";
 
-const ThemeContext =
-  createContext<
-    (Accessor<Theme> | { getTheme(): void; setTheme(theme: Theme): void })[]
-  >();
+const ThemeContext = createContext<[Accessor<Theme>, Setter<Theme>]>();
 
 type ThemeProviderProps = {
   theme: Theme;
@@ -24,20 +22,8 @@ export const ThemeProvider: ThemeProvider = (props) => {
     props.theme ? props.theme : "light"
   );
 
-  const themer = [
-    theme,
-    {
-      getTheme() {
-        return theme;
-      },
-      setTheme(theme: Theme) {
-        setTheme(theme);
-      },
-    },
-  ];
-
   return (
-    <ThemeContext.Provider value={themer}>
+    <ThemeContext.Provider value={[theme, setTheme]}>
       {props.children}
     </ThemeContext.Provider>
   );

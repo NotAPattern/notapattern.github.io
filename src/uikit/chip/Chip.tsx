@@ -1,7 +1,9 @@
 import styles from "./Chip.module.sass";
-import { JSX } from "solid-js";
+import { Component, JSX, createEffect, on } from "solid-js";
 import { Breakpoint, Theme } from "../../shared/types";
 import { Dynamic } from "solid-js/web";
+import { useTheme } from "../themeProvider/ThemeProvider";
+import { TimelineSection } from "src/App";
 
 // If you see simple solution think twice in TypeScript :)
 type Tag =
@@ -17,17 +19,20 @@ export type ChipProps = {
   children: JSX.Element;
   ref?: HTMLButtonElement | ((el: HTMLButtonElement) => void);
   href?: string;
+  onClick?: () => (section: TimelineSection) => void;
+  class: string[];
 };
 
-type Chip<P = ChipProps> = (props: P) => JSX.Element;
+const chipThemeStrategy: { [k in Theme]: CSSModuleClasses[string] } = {
+  light: styles.Chip_theme_light,
+  dark: styles.Chip_theme_dark,
+};
 
-const Chip: Chip = (props) => {
+const Chip: Component<ChipProps> = (props) => {
   const {
     size = "m",
     as,
     leftIcon,
-    theme,
-    selected,
     children,
     ref,
     href,
@@ -36,14 +41,20 @@ const Chip: Chip = (props) => {
 
   const Tag: Tag = as ?? "button";
 
+  const theme = props.theme ?? useTheme()?.[0]() ?? "light";
+
+  const selected = () => props.selected;
+
   return (
     <Dynamic
       component={Tag}
+      type={Tag === "button" ? "button" : undefined}
       ref={ref}
       href={href}
       classList={{
         [styles.Chip]: true,
-        [styles.Chip_selected]: selected ?? false,
+        [styles.Chip_selected]: selected() ?? false,
+        [chipThemeStrategy[theme]]: true,
       }}
       {...otherProps}
     >
