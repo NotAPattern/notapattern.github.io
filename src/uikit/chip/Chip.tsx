@@ -1,5 +1,5 @@
 import styles from "./Chip.module.sass";
-import { Component, JSX, createEffect, on } from "solid-js";
+import { Component, JSX, createEffect, createMemo, on } from "solid-js";
 import { Breakpoint, Theme } from "../../shared/types";
 import { Dynamic } from "solid-js/web";
 import { useTheme } from "../themeProvider/ThemeProvider";
@@ -43,7 +43,7 @@ const Chip: Component<ChipProps> = (props) => {
 
   const theme = props.theme ?? useTheme()?.[0]() ?? "light";
 
-  const selected = () => props.selected;
+  const selected = createMemo(() => props.selected);
 
   return (
     <Dynamic

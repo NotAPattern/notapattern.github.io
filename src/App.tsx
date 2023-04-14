@@ -1,12 +1,14 @@
-import { Component, createSignal } from "solid-js";
+import { Component, Match, Switch, createSignal } from "solid-js";
 import styles from "./App.module.sass";
-import Header from "./header/components/Header";
-import Greetings from "./header/components/Greetings";
-import ChipMenu from "./header/components/ChipMenu";
+import Header from "./components/header/Header";
+import Greetings from "./components/header/Greetings";
+import ChipMenu from "./components/menu/ChipMenu";
 import Chip from "@uikit/chip/Chip";
-import Timeline from "./header/components/Timeline";
+import Timeline from "./components/main/timeline/Timeline";
 import { Theme } from "./shared/types";
 import { useTheme } from "./uikit/themeProvider/ThemeProvider";
+import TimelineItem from "./components/main/timeline/TimelineItem";
+import TimelineContent from "./components/main/timeline/TimelineContent";
 
 export type TimelineSection = "workProjects" | "events" | "aboutMe";
 
@@ -29,11 +31,11 @@ const App: Component = () => {
           👋 <br></br>Я – Никита Карацев, <br></br>
           Сайт про меня 👨‍💻 <br></br>и мои достижения. 🏆
         </Greetings>
-        <button
+        {/* <button
           onClick={() => setTheme(theme() === "light" ? "dark" : "light")}
         >
           Change theme
-        </button>
+        </button> */}
         {/* <img src={logo} class={styles.logo} alt="logo" /> */}
         {/* <p>
             Edit <code>src/App.tsx</code> and save to reload.
@@ -52,7 +54,7 @@ const App: Component = () => {
           selected={timelineSection() === "workProjects"}
           onClick={() => setTimelineSection("workProjects")}
         >
-          Рабочие проекты
+          Опыт работы
         </Chip>
         <Chip
           selected={timelineSection() === "events"}
@@ -68,7 +70,24 @@ const App: Component = () => {
         </Chip>
       </ChipMenu>
       <main>
-        <Timeline>asdad</Timeline>
+        <Switch>
+          <Match when={timelineSection() === "workProjects"}>
+            <Timeline name="workProjects" color="#FCCA00">
+              <TimelineItem>
+                <TimelineContent>Cron design</TimelineContent>
+              </TimelineItem>
+              <TimelineItem>
+                <TimelineContent>Smth </TimelineContent>
+              </TimelineItem>
+            </Timeline>
+          </Match>
+          <Match when={timelineSection() === "events"}>
+            <Timeline name="events">asdad</Timeline>
+          </Match>
+          <Match when={timelineSection() === "aboutMe"}>
+            <Timeline name="aboutMe">asdad</Timeline>
+          </Match>
+        </Switch>
       </main>
     </div>
   );
