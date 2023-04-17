@@ -1,7 +1,11 @@
 @import "@uikit/text/Text.module"
+@import "@shared/breakpoints.sass"
 
 .TimelineContent
   @extend .Text
   background-color: transparent
-  font-size: 5rem
-  margin-top: -3rem
+  font-size: 4rem
+  margin-top: -2rem
+  +for-phone
+    font-size: 3rem
+    margin-top: -1rem

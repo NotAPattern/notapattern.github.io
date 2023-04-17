@@ -15,6 +15,15 @@
   --theme-link: #5F5FFF
   --theme-yellow: #FCCA00
 
+html
+  font-size: calc(1em + .5vw - 5px)
+  +for-phone
+    font-size: calc(1em + .125vw - 10px)
+  +for-tablet
+    font-size: calc(1em + .125vw - 8px)
+  +for-desktop
+    font-size: calc(1em + .5vw - 5px)
+
 body
   overflow-x: hidden
 
@@ -24,11 +33,6 @@ body
   align-items: center
   text-align: center
   min-height: 100vh
-  font-size: calc(1rem + .5vw - 5px)
-  +for-phone
-    font-size: 0.7rem
-  +for-tablet
-    font-size: calc(1rem + .5vw - 5px)
   transition: background-color .20s ease-out, color .20s ease-out
 
 .App_theme_light
