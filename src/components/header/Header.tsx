@@ -1,6 +1,6 @@
 import styles from "./Header.module.sass";
 import { Component, JSX } from "solid-js";
-import { Breakpoint, Theme } from "../../shared/types";
+import { Breakpoint, Theme, ThemeStrategy } from "../../shared/types";
 import { useTheme } from "@uikit/themeProvider/ThemeProvider";
 
 export type HeaderProps = {
@@ -13,7 +13,7 @@ export type HeaderProps = {
   href?: string;
 };
 
-const headerThemeStrategy: { [k in Theme]: CSSModuleClasses[string] } = {
+const headerThemeStrategy: ThemeStrategy = {
   light: styles.Header_theme_light,
   dark: styles.Header_theme_dark,
 };

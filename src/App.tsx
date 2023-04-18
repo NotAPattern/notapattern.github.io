@@ -4,15 +4,16 @@ import Header from "./components/header/Header";
 import Greetings from "./components/header/Greetings";
 import ChipMenu from "./components/menu/ChipMenu";
 import Chip from "@uikit/chip/Chip";
+import { useTheme } from "@uikit/themeProvider/ThemeProvider";
 import Timeline from "./components/main/timeline/Timeline";
-import { Theme } from "./shared/types";
-import { useTheme } from "./uikit/themeProvider/ThemeProvider";
+import { ThemeStrategy } from "./shared/types";
 import TimelineItem from "./components/main/timeline/TimelineItem";
-import TimelineContent from "./components/main/timeline/TimelineContent";
+import TimelineStop from "./components/main/timeline/TimelineStop";
+import "normalize.css";
 
 export type TimelineSection = "workProjects" | "events" | "aboutMe";
 
-const appThemeStrategy: { [k in Theme]: CSSModuleClasses[string] } = {
+const appThemeStrategy: ThemeStrategy = {
   light: styles.App_theme_light,
   dark: styles.App_theme_dark,
 };
@@ -73,11 +74,12 @@ const App: Component = () => {
         <Switch>
           <Match when={timelineSection() === "workProjects"}>
             <Timeline name="workProjects" color="#FCCA00">
-              <TimelineItem>
-                <TimelineContent>Cron design</TimelineContent>
+              <TimelineItem title="Cron design" description="04.2022-11.2022">
+                <TimelineStop>test 1</TimelineStop>
+                <TimelineStop>test 2</TimelineStop>
               </TimelineItem>
-              <TimelineItem>
-                <TimelineContent>Smth </TimelineContent>
+              <TimelineItem title="Smth">
+                <TimelineStop>asd</TimelineStop>
               </TimelineItem>
             </Timeline>
           </Match>

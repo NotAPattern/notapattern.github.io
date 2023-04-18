@@ -1,7 +1,16 @@
+@import "@uikit/text/Text.module"
+@import "@shared/breakpoints.sass"
+
 .TimelineItem
   display: flex
-  flex-direction: row
+  flex-direction: column
   justify-content: flex-start
+  gap: 0
+
+.TimelineItemWrapper
+  display: flex
+  flex-direction: row
+  align-items: flex-start
   gap: 1.5rem
 
 .TimelineShape
@@ -10,31 +19,48 @@
   align-items: center
   margin: 0
   padding: 0
-  margin-top: -0.5rem
-
-.TimelineIntervalSeparator
   width: 6rem
-  height: 2.5rem
+
+.TimelineStopWrapper
+  // margin-top: -1.25rem
+  display: flex
+  flex-direction: row
+  align-items: flex-start
+  gap: 1.5rem
+
+.TimelineTitle
+  display: flex
+  flex-direction: column
+  margin-top: -1.5rem
+  & > h2
+    margin: 0
+  & > span
+    margin: 0 0 0 0
+    font-size: 1.5rem
+
+.TimelineTitle_theme_light
+  & > h2
+    color: var(--theme-light-primary)
+  & > span
+    color: var(--theme-light-secondary)
+
+.TimelineTitle_theme_dark
+  & > h2
+    color: var(--theme-dark-primary)
+  & > span
+    color: var(--theme-light-secondary)
 
 .TimelineLine
   width: 2.5rem
   height: 10rem
   margin-top: -1.25rem
 
-.TimelineStop
-  width: 4rem
-  height: 4rem
-  border-radius: 50%
-  position: relative
-  margin-top: -1.25rem
-
-.TimelineStopInner
-  width: 2.4rem
-  height: 2.4rem
-  border-radius: 50%
-  border: .35rem solid var(--theme-light-bg)
-  margin: auto
-  position: absolute
-  top: 50%
-  left: 50%
-  transform: translate(-50%, -50%)
+.TimelineContent
+  @extend .Text
+  background-color: transparent
+  font-size: 4rem
+  margin-top: -2rem
+  text-align: left
+  +for-phone
+    font-size: 3rem
+    margin-top: -1rem

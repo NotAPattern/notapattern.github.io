@@ -1,6 +1,6 @@
 import styles from "./Chip.module.sass";
-import { Component, JSX, createEffect, createMemo, on } from "solid-js";
-import { Breakpoint, Theme } from "../../shared/types";
+import { Component, JSX, createMemo } from "solid-js";
+import { Breakpoint, Theme, ThemeStrategy } from "../../shared/types";
 import { Dynamic } from "solid-js/web";
 import { useTheme } from "../themeProvider/ThemeProvider";
 import { TimelineSection } from "src/App";
@@ -23,7 +23,7 @@ export type ChipProps = {
   class: string[];
 };
 
-const chipThemeStrategy: { [k in Theme]: CSSModuleClasses[string] } = {
+const chipThemeStrategy: ThemeStrategy = {
   light: styles.Chip_theme_light,
   dark: styles.Chip_theme_dark,
 };
