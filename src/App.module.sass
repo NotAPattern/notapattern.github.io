@@ -16,13 +16,15 @@
   --theme-yellow: #FCCA00
 
 html
-  font-size: calc(1em + .5vw - 5px)
-  +for-phone
-    font-size: calc(1.2em + .125vw - 8px)
-  +for-tablet
-    font-size: calc(1em + .25vw - 6px)
-  +for-desktop
-    font-size: calc(1em + .5vw - 5px)
+  font-size: calc(7px + .8vw)
+  // +for-phone
+  //   font-size: calc(1.2em + .125vw - 8px)
+  // +for-tablet
+  //   font-size: calc(1em + .25vw - 6px)
+  // +for-desktop
+  //   font-size: calc(1em + .5vw - 5px)
+  +for-laptop
+    font-size: calc(16px + .23vw)
 
 body
   overflow-x: hidden
@@ -43,3 +45,7 @@ body
 .App_theme_dark
   background-color: var(--theme-dark-bg)
   color: var(--theme-dark-primary)
+
+.Header
+  position: relative
+  width: 100%

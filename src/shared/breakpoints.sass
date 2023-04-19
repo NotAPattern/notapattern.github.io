@@ -1,11 +1,23 @@
+=for-buttons-phone
+  @media screen and (min-width: 0px)
+    @content
+
+=for-galaxy-fold
+  @media screen and (min-width: 241px)
+    @content
+
 =for-phone
-  @media screen and (max-width: 599px)
+  @media screen and (min-width: 280px)
     @content
 
 =for-tablet
-  @media screen and (min-width: 600px)
+  @media screen and (min-width: 720px)
+    @content
+
+=for-laptop
+  @media screen and (min-width: 1200px)
     @content
 
 =for-desktop
-  @media screen and (min-width: 1200px)
+  @media screen and (min-width: 1600px)
     @content

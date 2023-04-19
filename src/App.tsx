@@ -26,7 +26,7 @@ const App: Component = () => {
 
   return (
     <div classList={{ [styles.App]: true, [appThemeStrategy[theme()]]: true }}>
-      <header class={styles.header}>
+      <header class={styles.Header}>
         <Header>NOTAPATTERN</Header>
         <Greetings>
           👋 <br></br>Я – Никита Карацев, <br></br>
@@ -52,6 +52,12 @@ const App: Component = () => {
       </header>
       <ChipMenu>
         <Chip
+          selected={timelineSection() === "aboutMe"}
+          onClick={() => setTimelineSection("aboutMe")}
+        >
+          Обо мне
+        </Chip>
+        <Chip
           selected={timelineSection() === "workProjects"}
           onClick={() => setTimelineSection("workProjects")}
         >
@@ -62,12 +68,6 @@ const App: Component = () => {
           onClick={() => setTimelineSection("events")}
         >
           Мероприятия
-        </Chip>
-        <Chip
-          selected={timelineSection() === "aboutMe"}
-          onClick={() => setTimelineSection("aboutMe")}
-        >
-          Обо мне
         </Chip>
       </ChipMenu>
       <main>
