@@ -1,16 +1,16 @@
-import styles from "./ChipMenu.module.sass";
+import styles from "./ChipList.module.sass";
 import { Component, JSX } from "solid-js";
 
-export type ChipMenuProps = {
+export type ChipListProps = {
   selected?: boolean;
   children: JSX.Element;
 };
 
-const ChipMenu: Component<ChipMenuProps> = (props) => {
+const ChipList: Component<ChipListProps> = (props) => {
   return (
     <nav
       classList={{
-        [styles.ChipMenu]: true,
+        [styles.ChipList]: true,
       }}
     >
       {props.children}
@@ -18,4 +18,4 @@ const ChipMenu: Component<ChipMenuProps> = (props) => {
   );
 };
 
-export default ChipMenu;
+export default ChipList;

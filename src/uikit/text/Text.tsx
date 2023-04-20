@@ -1,6 +1,7 @@
 import { Component } from "solid-js";
 import { Theme } from "src/shared/types";
 import { useTheme } from "../themeProvider/ThemeProvider";
+import styles from "./Text.module.sass";
 
 export type TextProps = {
   theme?: Theme;
@@ -10,7 +11,7 @@ export type TextProps = {
 const Text: Component<TextProps> = (props) => {
   const theme = props.theme ?? useTheme()?.[0]() ?? "light";
 
-  return <div>{props.children}</div>;
+  return <p class={styles.Text}>{props.children}</p>;
 };
 
 export default Text;

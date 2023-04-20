@@ -1,6 +1,6 @@
 import styles from "./Chip.module.sass";
 import { Component, JSX, createMemo } from "solid-js";
-import { Breakpoint, Theme, ThemeStrategy } from "../../shared/types";
+import { Breakpoint, Theme, ThemeStrategy } from "@shared/types";
 import { Dynamic } from "solid-js/web";
 import { useTheme } from "../themeProvider/ThemeProvider";
 import { TimelineSection } from "src/App";
@@ -41,7 +41,7 @@ const Chip: Component<ChipProps> = (props) => {
 
   const Tag: Tag = as ?? "button";
 
-  const theme = props.theme ?? useTheme()?.[0]() ?? "light";
+  const theme = props.theme ?? useTheme()?.[0] ?? "light";
 
   const selected = createMemo(() => props.selected);
 
@@ -54,7 +54,9 @@ const Chip: Component<ChipProps> = (props) => {
       classList={{
         [styles.Chip]: true,
         [styles.Chip_selected]: selected() ?? false,
-        [chipThemeStrategy[theme]]: true,
+        [styles.Chip_link]: as === "a",
+        [chipThemeStrategy[typeof theme === "function" ? theme() : theme]]:
+          true,
       }}
       {...otherProps}
     >

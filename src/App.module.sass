@@ -16,15 +16,7 @@
   --theme-yellow: #FCCA00
 
 html
-  font-size: calc(7px + .8vw)
-  // +for-phone
-  //   font-size: calc(1.2em + .125vw - 8px)
-  // +for-tablet
-  //   font-size: calc(1em + .25vw - 6px)
-  // +for-desktop
-  //   font-size: calc(1em + .5vw - 5px)
-  +for-laptop
-    font-size: calc(16px + .23vw)
+  font-size: calc(7px + .468vw)
 
 body
   overflow-x: hidden
@@ -37,15 +29,21 @@ body
   text-align: center
   min-height: 100vh
   transition: background-color .20s ease-out, color .20s ease-out
+  &_theme_light
+    background-color: var(--theme-light-bg)
+    color: var(--theme-light-primary)
+  &_theme_dark
+    background-color: var(--theme-dark-bg)
+    color: var(--theme-dark-primary)
 
-.App_theme_light
-  background-color: var(--theme-light-bg)
-  color: var(--theme-light-primary)
-
-.App_theme_dark
-  background-color: var(--theme-dark-bg)
-  color: var(--theme-dark-primary)
-
-.Header
-  position: relative
+.AppWrapper
+  margin: 4rem 2rem 0 2rem
   width: 100%
+  max-width: 56.25rem
+
+.MainWrapper
+  margin-top: 4rem
+  display: flex
+  align-items: flex-start
+  flex-direction: column
+  gap: 2rem
