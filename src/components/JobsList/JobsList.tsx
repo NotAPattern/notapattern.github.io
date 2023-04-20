@@ -41,7 +41,11 @@ const JobList: Component<JobsListProps> = (props) => {
           {job.projects?.map((project) => (
             <ul style={styles.JobList__projectList}>
               <li>
-                <a class={styles.JobList__projectItem} href={project.url}>
+                <a
+                  class={styles.JobList__projectItem}
+                  href={project.url}
+                  target="_blank"
+                >
                   {project.name}
                 </a>
               </li>
