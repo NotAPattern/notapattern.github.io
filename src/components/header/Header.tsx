@@ -1,6 +1,6 @@
 import styles from "./Header.module.sass";
 import { Component, JSX } from "solid-js";
-import { Breakpoint, Theme, ThemeStrategy } from "../../shared/types";
+import { Breakpoint, Theme, ThemeStrategy } from "@shared/types";
 import { useTheme } from "@uikit/themeProvider/ThemeProvider";
 
 export type HeaderProps = {

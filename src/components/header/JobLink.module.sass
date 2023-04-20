@@ -1,0 +1,8 @@
+@use "@uikit/text/Text.module"
+
+.JobLink
+  @extend .Text
+  transition: color .14s ease-out, filter .14s ease-out
+  color: var(--theme-light-secondary)
+  &:hover
+    filter: brightness(120%)

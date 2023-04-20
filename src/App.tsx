@@ -6,10 +6,12 @@ import ChipMenu from "./components/menu/ChipMenu";
 import Chip from "@uikit/chip/Chip";
 import { useTheme } from "@uikit/themeProvider/ThemeProvider";
 import Timeline from "./components/main/timeline/Timeline";
-import { ThemeStrategy } from "./shared/types";
+import { ThemeStrategy } from "@shared/types";
 import TimelineItem from "./components/main/timeline/TimelineItem";
 import TimelineStop from "./components/main/timeline/TimelineStop";
 import "normalize.css";
+import WorkStatus from "./components/header/WorkStatus";
+import JobLink from "./components/header/JobLink";
 
 export type TimelineSection = "workProjects" | "events" | "aboutMe";
 
@@ -22,7 +24,7 @@ const App: Component = () => {
   const [timelineSection, setTimelineSection] =
     createSignal<TimelineSection>("workProjects");
 
-  const [theme, setTheme] = useTheme()!;
+  const [theme] = useTheme()!;
 
   return (
     <div classList={{ [styles.App]: true, [appThemeStrategy[theme()]]: true }}>
@@ -32,6 +34,10 @@ const App: Component = () => {
           👋 <br></br>Я – Никита Карацев, <br></br>
           Сайт про меня 👨‍💻 <br></br>и мои достижения. 🏆
         </Greetings>
+        <WorkStatus status="haired" />
+        <JobLink href="mailto:nikita.karatsev@gmail.com">
+          Предложить работу
+        </JobLink>
         {/* <button
           onClick={() => setTheme(theme() === "light" ? "dark" : "light")}
         >
