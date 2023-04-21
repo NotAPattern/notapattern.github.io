@@ -10,13 +10,10 @@ Site about me, my work experience and events.
 
 ## To-do
 
-- [ ] timeline in work,
 - [ ] "to offer a job" form,
 - [ ] @solid-primitives/i18n to text,
 - [ ] Yandex Music integration,
-- [ ] change light/dark theme animation,
-- [ ] events section,
-- [ ] about me section,
+- [x] change light/dark theme animation,
 - [ ] add characteristic from work,
 - [ ] button for print resume,
-- [ ] projects section.
+- [x] projects section.
