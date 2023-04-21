@@ -8,11 +8,12 @@ import "normalize.css";
 import Title from "./components/Title/Title";
 import Section from "./Section/Section";
 import Text from "@uikit/text/Text";
-import { workExperience } from "./shared/data";
+import { educationData, skillData, workExperienceData } from "@shared/data";
 import { formatTotalWorkExperience } from "./shared/formatTotalWorkExperience";
-import Microsoft from "./assets/MICROSOFT.svg";
-import JavaScript from "./assets/javascript.svg";
-import JobList from "./components/JobsList/JobsList";
+import JobList from "./components/JobList/JobList";
+import EducationList from "./components/EducationList/EducationList";
+import SkillList from "./components/SkillList/SkillList";
+// import "@shared/paged.js";
 
 const appThemeStrategy: ThemeStrategy = {
   light: styles.App_theme_light,
@@ -57,13 +58,17 @@ const App: Component = () => {
             </Section>
             <Section
               title={`💼 Опыт работы — 
-              ${formatTotalWorkExperience(workExperience)}`}
+              ${formatTotalWorkExperience(workExperienceData)}`}
             >
-              <JobList data={workExperience} />
+              <JobList data={workExperienceData} />
             </Section>
-            <Section title="🛠️ Навыки"></Section>
-            <Section title="🧑‍🎓 Образование"></Section>
-            <Section title="📜 Сертификаты"></Section>
+            <Section title="🛠️ Навыки">
+              <SkillList data={skillData} />
+            </Section>
+            <Section title="🧑‍🎓 Образование">
+              <EducationList data={educationData} />
+            </Section>
+            {/* <Section title="📜 Сертификаты"></Section> */}
           </div>
         </main>
       </div>

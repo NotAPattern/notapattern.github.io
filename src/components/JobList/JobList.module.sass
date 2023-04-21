@@ -1,7 +1,7 @@
 .JobList
   text-align: left
   list-style-type: none
-  margin: 0
+  margin: 1rem 0 0 0
   padding: 0
   font-weight: 700
   display: flex
@@ -10,6 +10,8 @@
   height: 100%
   &__item
     margin: 0
+    @media print
+      page-break-before: auto
     // color: red
   &__employer
     margin: 0
@@ -20,8 +22,18 @@
     color: var(--theme-light-secondary)
   &__period_theme_dark
     color: var(--theme-dark-secondary)
-  &__projectList
-    list-style-type: circle
-  &__projectItem
+
+.ProjectList
+  list-style-type: disc
+  display: flex
+  flex-direction: column
+  gap: 1rem
+  margin-top: 1rem
+  &__item
     font-size: 1.5rem
-    color: var(--theme-link)
+    &_link
+      color: var(--theme-link)
+  &__description
+    font-size: 1.125rem
+    font-weight: 400
+    margin: 0.25rem 0 0 0

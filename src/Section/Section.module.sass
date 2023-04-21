@@ -1,3 +1,5 @@
+@use "@uikit/text/Text.module"
+
 .Section
   display: flex
   flex-direction: column
@@ -6,5 +8,6 @@
   width: 100%
 
 .SectionHeader
-  font-size: 2.5rem
+  @extend .Text
+  font-size: 2rem
   margin: 0

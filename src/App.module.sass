@@ -23,6 +23,7 @@ body
   scrollbar-width: thin
 
 .App
+  position: relative
   display: flex
   flex-direction: column
   align-items: center
@@ -37,7 +38,9 @@ body
     color: var(--theme-dark-primary)
 
 .AppWrapper
-  margin: 4rem 2rem 0 2rem
+  box-sizing: border-box
+  margin: 4rem 0 4rem 0
+  padding: 0 2rem 0 2rem
   width: 100%
   max-width: 56.25rem
 
@@ -46,4 +49,19 @@ body
   display: flex
   align-items: flex-start
   flex-direction: column
-  gap: 2rem
+  gap: 4rem
+
+@media print
+  .App
+    background-color: #FFF
+  @page
+    size: A4
+    margin-top: 0
+    margin-right: 2rem
+    margin-bottom: 4rem
+    margin-left: 2rem
+    @bottom-left
+      content: counter(page)
+    @bottom-center
+      content: string(title)
+      text-transform: uppercase
