@@ -6,13 +6,14 @@ import { useTheme } from "@uikit/themeProvider/ThemeProvider";
 import { ThemeStrategy } from "@shared/types";
 import "normalize.css";
 import Title from "./components/Title/Title";
-import Section from "./Section/Section";
+import Section from "./components/Section/Section";
 import Text from "@uikit/text/Text";
 import { educationData, skillData, workExperienceData } from "@shared/data";
 import { formatTotalWorkExperience } from "./shared/formatTotalWorkExperience";
 import JobList from "./components/JobList/JobList";
 import EducationList from "./components/EducationList/EducationList";
 import SkillList from "./components/SkillList/SkillList";
+import ChangeTheme from "./components/ChangeTheme/ChangeTheme";
 // import "@shared/paged.js";
 
 const appThemeStrategy: ThemeStrategy = {
@@ -31,12 +32,7 @@ const App: Component = () => {
         </header>
         <main>
           <div class={styles.MainWrapper}>
-            {/* <button
-              style={{ "align-self": "center" }}
-              onClick={() => setTheme(theme() === "light" ? "dark" : "light")}
-            >
-              Change theme
-            </button> */}
+            <ChangeTheme />
             <Section title="Привет 👋, меня зовут Никита Карацев">
               <ChipList>
                 <Chip

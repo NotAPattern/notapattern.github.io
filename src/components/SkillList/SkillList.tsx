@@ -2,7 +2,6 @@ import { Skill } from "@shared/data";
 import styles from "./SkillList.module.sass";
 import { Component } from "solid-js";
 import { Theme } from "@shared/types";
-import { useTheme } from "@uikit/themeProvider/ThemeProvider";
 
 type SkillListProps = {
   data: Skill[];

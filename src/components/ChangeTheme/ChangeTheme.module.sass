@@ -1,0 +1,24 @@
+.ChangeTheme
+  position: absolute
+  width: 3rem
+  height: 3rem
+  top: 1.5rem
+  right: 1.5rem
+  padding: 0
+  border: none
+  border-radius: 50%
+  background-repeat: no-repeat
+  background-position: center
+  background-color: transparent
+  &_theme_light
+    background-image: url("../../assets/sun.svg")
+    fill: red
+    &:hover
+      filter: brightness(90%)
+  &_theme_dark
+    background-image: url("../../assets/moon.svg")
+    &:hover
+      filter: brightness(110%)
+  @media print
+    display: none !important
+    height: 0
