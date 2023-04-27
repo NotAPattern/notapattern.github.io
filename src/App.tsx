@@ -14,6 +14,7 @@ import JobList from "./components/JobList/JobList";
 import EducationList from "./components/EducationList/EducationList";
 import SkillList from "./components/SkillList/SkillList";
 import ChangeTheme from "./components/ChangeTheme/ChangeTheme";
+import { format } from "date-fns";
 // import "@shared/paged.js";
 
 const appThemeStrategy: ThemeStrategy = {
@@ -22,7 +23,7 @@ const appThemeStrategy: ThemeStrategy = {
 };
 
 const App: Component = () => {
-  const [theme, setTheme] = useTheme()!;
+  const [theme] = useTheme()!;
 
   return (
     <div classList={{ [styles.App]: true, [appThemeStrategy[theme()]]: true }}>
@@ -47,7 +48,7 @@ const App: Component = () => {
                   href="https://notapattern.github.io"
                   target="_blank"
                 >
-                  Сайт
+                  🌐 notapattern.github.io
                 </Chip>
               </ChipList>
               <Text>Мне 24 года, занимаюсь front end разработкой.</Text>
@@ -67,6 +68,11 @@ const App: Component = () => {
             {/* <Section title="📜 Сертификаты"></Section> */}
           </div>
         </main>
+        <footer>
+          <div class={styles.CreateDate}>
+            Резюме создано {format(new Date(), "dd.MM.yyyy")}
+          </div>
+        </footer>
       </div>
     </div>
   );
