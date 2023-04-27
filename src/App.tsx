@@ -22,6 +22,11 @@ const appThemeStrategy: ThemeStrategy = {
   dark: styles.App_theme_dark,
 };
 
+const createDateThemeStrategy: ThemeStrategy = {
+  light: styles.CreateDate_theme_light,
+  dark: styles.CreateDate_theme_dark,
+};
+
 const App: Component = () => {
   const [theme] = useTheme()!;
 
@@ -69,8 +74,17 @@ const App: Component = () => {
           </div>
         </main>
         <footer>
-          <div class={styles.CreateDate}>
-            Резюме создано {format(new Date(), "dd.MM.yyyy")}
+          <div
+            classList={{
+              [styles.CreateDate]: true,
+              [createDateThemeStrategy[theme()]]: true,
+            }}
+          >
+            Резюме создано {format(new Date(), "dd.MM.yyyy")} <br></br>
+            ❤️ with{" "}
+            <a href="https://www.solidjs.com/" target="_blank">
+              SolidJS
+            </a>
           </div>
         </footer>
       </div>
