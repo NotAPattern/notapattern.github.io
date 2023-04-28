@@ -8,9 +8,9 @@
 
   // TODO: change palette
   --theme-dark-primary: #cbcbcb
-  --theme-dark-secondary: #5a5a5a
+  --theme-dark-secondary: #8b8a8a
   --theme-dark-bg: #303030
-  --theme-dark-el-bg: #777777
+  --theme-dark-el-bg: #ababab
 
   --theme-link: #5F5FFF
   --theme-yellow: #FCCA00
@@ -49,11 +49,13 @@ body
   display: flex
   align-items: flex-start
   flex-direction: column
-  gap: 4rem
+  gap: 3rem
 
 @media print
   .App
     background-color: #FFF
+  .AppWrapper
+    margin-bottom: 0
   // @page
   //   size: A4
   //   margin-top: 0
@@ -67,10 +69,21 @@ body
   //     text-transform: uppercase
 
 .CreateDate
-  margin: 4rem
+  margin: 4rem 0 0 0
   width: 100%
   text-align: right
   &_theme_light
     color: var(--theme-light-secondary)
   &_theme_dark
     color: var(--theme-dark-secondary)
+
+.AboutMe
+  text-align: left
+
+.Source
+  display: inline-block
+  width: 100%
+  text-align: right
+
+blockquote
+  margin: 0 2rem 0 2rem

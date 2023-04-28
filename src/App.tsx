@@ -14,8 +14,9 @@ import JobList from "./components/JobList/JobList";
 import EducationList from "./components/EducationList/EducationList";
 import SkillList from "./components/SkillList/SkillList";
 import ChangeTheme from "./components/ChangeTheme/ChangeTheme";
-import { format } from "date-fns";
+import { format, intervalToDuration } from "date-fns";
 // import "@shared/paged.js";
+import { noun as pluralNoun } from "plural-ru";
 
 const appThemeStrategy: ThemeStrategy = {
   light: styles.App_theme_light,
@@ -29,6 +30,11 @@ const createDateThemeStrategy: ThemeStrategy = {
 
 const App: Component = () => {
   const [theme] = useTheme()!;
+
+  const age = intervalToDuration({
+    start: new Date(1999, 2, 27),
+    end: new Date(),
+  }).years!;
 
   return (
     <div classList={{ [styles.App]: true, [appThemeStrategy[theme()]]: true }}>
@@ -56,7 +62,51 @@ const App: Component = () => {
                   🌐 notapattern.github.io
                 </Chip>
               </ChipList>
-              <Text>Мне 24 года, занимаюсь front end разработкой.</Text>
+              <Text>
+                Мне {age.toString()} {pluralNoun(age, "год", "года", "лет")},
+                занимаюсь front end разработкой. Увлекаюсь стоицизмом, люблю
+                музыку.
+              </Text>
+              <blockquote cite="https://journal.tinkoff.ru/programmer/">
+                <Text>
+                  <i>
+                    А программирование в принципе — если вы ленивы настолько,
+                    что готовы работать сутки, чтобы потом компьютер сделал вашу
+                    работу за минуту.
+                  </i>
+                </Text>
+                <br></br>
+                <cite>
+                  <a
+                    href="https://journal.tinkoff.ru/programmer/"
+                    target="_blank"
+                    class={styles.Source}
+                  >
+                    Источник
+                  </a>
+                </cite>
+              </blockquote>
+              <blockquote>
+                <Text>
+                  <i>
+                    ... Этот вариант грустный, и обычно он является следствием
+                    того, что человек, не верит в свои силы или находится в
+                    плену у лени. Веру в себя — это к психологу, а с ленью нужно
+                    бороться.
+                  </i>
+                </Text>
+                <br></br>
+
+                <cite>
+                  <a
+                    href="https://maxpfrontend.ru/vebinary/voprosy-dlya-sobesedovaniya-javascript-razrabotchika/"
+                    target="_blank"
+                    class={styles.Source}
+                  >
+                    Источник
+                  </a>
+                </cite>
+              </blockquote>
             </Section>
             <Section
               title={`💼 Опыт работы — 
