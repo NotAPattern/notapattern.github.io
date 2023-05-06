@@ -1,22 +1,22 @@
-import { Education } from "src/shared/data";
-import styles from "./EducationList.module.sass";
-import { Component } from "solid-js";
-import { format } from "date-fns";
-import { Theme, ThemeStrategy } from "@shared/types";
-import { useTheme } from "@uikit/themeProvider/ThemeProvider";
+import { Theme, ThemeInvoker } from '@shared/types';
+import { Component } from 'solid-js';
+import { Education } from '@shared/data';
+import { format } from 'date-fns';
+import styles from './EducationList.module.sass';
+import { useTheme } from '@uikit';
 
 type EducationListProps = {
   data: Education[];
   theme?: Theme;
 };
 
-const programmListPeriodThemeStrategy: ThemeStrategy = {
+const programmListPeriodThemeInvoker: ThemeInvoker = {
   light: styles.ProgrammList__period_theme_light,
   dark: styles.ProgrammList__period_theme_dark,
 };
 
 const EducationList: Component<EducationListProps> = (props) => {
-  const theme = props.theme ?? useTheme()?.[0] ?? "light";
+  const theme = props.theme ?? useTheme()?.[0] ?? 'light';
 
   return (
     <ul class={styles.EducationList}>
@@ -31,13 +31,13 @@ const EducationList: Component<EducationListProps> = (props) => {
                 <p
                   classList={{
                     [styles.ProgrammList__period]: true,
-                    [programmListPeriodThemeStrategy[
-                      typeof theme === "function" ? theme() : theme
+                    [programmListPeriodThemeInvoker[
+                      typeof theme === 'function' ? theme() : theme
                     ]]: true,
                   }}
                 >
-                  {format(programm.startDate, "yyyy")} –{" "}
-                  {format(programm.endDate, "yyyy")}
+                  {format(programm.startDate, 'yyyy')} –{' '}
+                  {format(programm.endDate, 'yyyy')}
                 </p>
                 <div>
                   <h4 class={styles.ProgrammList__degree}>{programm.degree}</h4>

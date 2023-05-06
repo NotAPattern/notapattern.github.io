@@ -1,12 +1,12 @@
 import {
-  createSignal,
-  createContext,
-  useContext,
-  JSX,
   Accessor,
+  createContext,
+  createSignal,
+  JSX,
   Setter,
-} from "solid-js";
-import { Theme } from "../../shared/types";
+  useContext,
+} from 'solid-js';
+import { Theme } from '../../shared/types';
 
 const ThemeContext = createContext<[Accessor<Theme>, Setter<Theme>]>();
 
@@ -17,9 +17,9 @@ type ThemeProviderProps = {
 
 type ThemeProvider<P = ThemeProviderProps> = (props: P) => JSX.Element;
 
-export const ThemeProvider: ThemeProvider = (props) => {
+const ThemeProvider: ThemeProvider = (props) => {
   const [theme, setTheme] = createSignal<Theme>(
-    props.theme ? props.theme : "light"
+    props.theme ? props.theme : 'light'
   );
 
   return (
@@ -29,6 +29,8 @@ export const ThemeProvider: ThemeProvider = (props) => {
   );
 };
 
-export function useTheme() {
+function useTheme() {
   return useContext(ThemeContext);
 }
+
+export { ThemeProvider, useTheme };

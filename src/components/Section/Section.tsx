@@ -1,9 +1,9 @@
-import styles from "./Section.module.sass";
-import { Component, JSX } from "solid-js";
+import { Component, JSX } from 'solid-js';
+import styles from './Section.module.sass';
 
 type SectionProps = {
-  title?: string | JSX.Element;
-  children?: string | JSX.Element;
+  title?: JSX.Element | string;
+  children?: JSX.Element | string;
 };
 
 const Section: Component<SectionProps> = (props) => {

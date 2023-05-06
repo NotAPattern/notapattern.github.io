@@ -1,5 +1,5 @@
-import styles from "./ChipList.module.sass";
-import { Component, JSX } from "solid-js";
+import { Component, JSX } from 'solid-js';
+import styles from './ChipList.module.sass';
 
 export type ChipListProps = {
   selected?: boolean;

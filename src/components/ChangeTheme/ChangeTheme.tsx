@@ -1,9 +1,9 @@
-import { Component } from "solid-js";
-import { useTheme } from "@uikit/themeProvider/ThemeProvider";
-import { ThemeStrategy } from "@shared/types";
-import styles from "./ChangeTheme.module.sass";
+import { Component } from 'solid-js';
+import styles from './ChangeTheme.module.sass';
+import { ThemeInvoker } from '@shared/types';
+import { useTheme } from '@uikit';
 
-const changeThemeStrategy: ThemeStrategy = {
+const changeThemeInvoker: ThemeInvoker = {
   light: styles.ChangeTheme_theme_light,
   dark: styles.ChangeTheme_theme_dark,
 };
@@ -15,9 +15,9 @@ const ChangeTheme: Component = () => {
     <button
       classList={{
         [styles.ChangeTheme]: true,
-        [changeThemeStrategy[theme()]]: true,
+        [changeThemeInvoker[theme()]]: true,
       }}
-      onClick={() => setTheme(theme() === "light" ? "dark" : "light")}
+      onClick={() => setTheme(theme() === 'light' ? 'dark' : 'light')}
     ></button>
   );
 };

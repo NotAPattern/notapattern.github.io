@@ -1,29 +1,21 @@
-import { Component } from "solid-js";
-import styles from "./App.module.sass";
-import ChipList from "./components/ChipList/ChipList";
-import Chip from "@uikit/chip/Chip";
-import { useTheme } from "@uikit/themeProvider/ThemeProvider";
-import { ThemeStrategy } from "@shared/types";
-import "normalize.css";
-import Title from "./components/Title/Title";
-import Section from "./components/Section/Section";
-import Text from "@uikit/text/Text";
+import { ChangeTheme, ChipList, EducationList, JobList, Section, SkillList, Title } from "./components";
+import { Chip, Text, useTheme } from "@uikit";
 import { educationData, skillData, workExperienceData } from "@shared/data";
-import { formatTotalWorkExperience } from "./shared/formatTotalWorkExperience";
-import JobList from "./components/JobList/JobList";
-import EducationList from "./components/EducationList/EducationList";
-import SkillList from "./components/SkillList/SkillList";
-import ChangeTheme from "./components/ChangeTheme/ChangeTheme";
 import { format, intervalToDuration } from "date-fns";
-// import "@shared/paged.js";
+import { Component } from "solid-js";
+import { formatTotalWorkExperience } from "./shared/formatTotalWorkExperience";
 import { noun as pluralNoun } from "plural-ru";
+import styles from "./App.module.sass";
+import Telegram from "./assets/telegram.svg";
+import { ThemeInvoker } from "@shared/types";
+import 'normalize.css';
 
-const appThemeStrategy: ThemeStrategy = {
+const appThemeInvoker: ThemeInvoker = {
   light: styles.App_theme_light,
   dark: styles.App_theme_dark,
 };
 
-const createDateThemeStrategy: ThemeStrategy = {
+const createDateThemeInvoker: ThemeInvoker = {
   light: styles.CreateDate_theme_light,
   dark: styles.CreateDate_theme_dark,
 };
@@ -37,7 +29,7 @@ const App: Component = () => {
   }).years!;
 
   return (
-    <div classList={{ [styles.App]: true, [appThemeStrategy[theme()]]: true }}>
+    <div classList={{ [styles.App]: true, [appThemeInvoker[theme()]]: true }}>
       <div class={styles.AppWrapper}>
         <header class={styles.Header}>
           <Title>Notapattern</Title>
@@ -61,6 +53,14 @@ const App: Component = () => {
                 >
                   🌐 notapattern.github.io
                 </Chip>
+                <Chip
+                  as="a"
+                  href="https://t.me/notapattern"
+                  leftIcon={<Telegram />}
+                  target="_blank"
+                >
+                  Telegram
+                </Chip>
               </ChipList>
               <Text>
                 Мне {age.toString()} {pluralNoun(age, "год", "года", "лет")},
@@ -78,9 +78,9 @@ const App: Component = () => {
                 <br></br>
                 <cite>
                   <a
+                    class={styles.Source}
                     href="https://journal.tinkoff.ru/programmer/"
                     target="_blank"
-                    class={styles.Source}
                   >
                     Источник
                   </a>
@@ -99,9 +99,9 @@ const App: Component = () => {
 
                 <cite>
                   <a
+                    class={styles.Source}
                     href="https://maxpfrontend.ru/vebinary/voprosy-dlya-sobesedovaniya-javascript-razrabotchika/"
                     target="_blank"
-                    class={styles.Source}
                   >
                     Источник
                   </a>
@@ -127,7 +127,7 @@ const App: Component = () => {
           <div
             classList={{
               [styles.CreateDate]: true,
-              [createDateThemeStrategy[theme()]]: true,
+              [createDateThemeInvoker[theme()]]: true,
             }}
           >
             Резюме создано {format(new Date(), "dd.MM.yyyy")} <br></br>

@@ -1,7 +1,7 @@
-import { Skill } from "@shared/data";
-import styles from "./SkillList.module.sass";
-import { Component } from "solid-js";
-import { Theme } from "@shared/types";
+import { Component } from 'solid-js';
+import { Skill } from '@shared/data';
+import styles from './SkillList.module.sass';
+import { Theme } from '@shared/types';
 
 type SkillListProps = {
   data: Skill[];

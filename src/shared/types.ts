@@ -1,5 +1,5 @@
-export type Breakpoint = "xxs" | "xs" | "s" | "m" | "l" | "xl";
+export type Breakpoint = 'l' | 'm' | 's' | 'xl' | 'xs' | 'xxs';
 
-export type Theme = "light" | "dark";
+export type Theme = 'dark' | 'light';
 
-type ThemeStrategy = { [k in Theme]: CSSModuleClasses[string] };
+export type ThemeInvoker = { [k in Theme]: CSSModuleClasses[string] };

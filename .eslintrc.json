@@ -1,0 +1,61 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "sort-destructure-keys"
+  ],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "rules": {
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/sort-type-constituents": "error",
+    "@typescript-eslint/member-ordering": [
+      "error",
+      {
+        "typeLiterals": [
+          "signature",
+          "field",
+          "constructor",
+          "method"
+        ],
+        "default": {
+          "memberTypes": [
+            /* <Default Order> */
+          ],
+          "order": "alphabetically-case-insensitive"
+        }
+      }
+    ],
+    "sort-destructure-keys/sort-destructure-keys": [
+      2,
+      {
+        "caseSensitive": false
+      }
+    ],
+    "react/jsx-sort-props": 2,
+    "react/sort-default-props": 2,
+    "semi": 2,
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": false,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": [
+          "all",
+          "multiple",
+          "single",
+          "none"
+        ],
+        "allowSeparatedGroups": true
+      }
+    ]
+  }
+}
