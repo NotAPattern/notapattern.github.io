@@ -1,7 +1,7 @@
 {
-  "name": "vite-template-solid",
+  "name": "notapattern",
   "version": "0.0.0",
-  "description": "",
+  "description": "site about me",
   "scripts": {
     "start": "vite",
     "dev": "vite",
