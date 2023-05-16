@@ -26,9 +26,7 @@
           "method"
         ],
         "default": {
-          "memberTypes": [
-            /* <Default Order> */
-          ],
+          "memberTypes": [],
           "order": "alphabetically-case-insensitive"
         }
       }
