@@ -36,8 +36,8 @@ const EducationList: Component<EducationListProps> = (props) => {
                     ]]: true,
                   }}
                 >
-                  {format(programm.startDate, 'yyyy')} –{' '}
-                  {format(programm.endDate, 'yyyy')}
+                  <time>{format(programm.startDate, 'yyyy')}</time> –{' '}
+                  <time>{format(programm.endDate, 'yyyy')}</time>
                 </p>
                 <div>
                   <h4 class={styles.ProgrammList__degree}>{programm.degree}</h4>

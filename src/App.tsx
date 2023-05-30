@@ -130,7 +130,7 @@ const App: Component = () => {
               [createDateThemeInvoker[theme()]]: true,
             }}
           >
-            Резюме создано {format(new Date(), "dd.MM.yyyy")} <br></br>
+            Резюме создано <time>{format(new Date(), "dd.MM.yyyy")}</time><br></br>
             ❤️ with{" "}
             <a href="https://www.solidjs.com/" target="_blank">
               SolidJS
