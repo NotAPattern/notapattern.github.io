@@ -31,8 +31,9 @@ const JobList: Component<JobListProps> = (props) => {
                 ]]: true,
               }}
             >
+              (
               <time>
-                ({format(job.startDate, 'MM.yyyy')}
+                {format(job.startDate, 'MM.yyyy')}
               </time>
               {' – '}
               {job.endDate === 'present'
