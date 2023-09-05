@@ -70,9 +70,9 @@ const App: Component = () => {
               <blockquote cite="https://journal.tinkoff.ru/programmer/">
                 <Text>
                   <i>
-                    А программирование в принципе — если вы ленивы настолько,
-                    что готовы работать сутки, чтобы потом компьютер сделал вашу
-                    работу за минуту.
+                    «А программирование в принципе — если вы ленивы настолько,
+                      что готовы работать сутки, чтобы потом компьютер сделал вашу
+                      работу за минуту.»
                   </i>
                 </Text>
                 <br></br>
@@ -82,28 +82,27 @@ const App: Component = () => {
                     href="https://journal.tinkoff.ru/programmer/"
                     target="_blank"
                   >
-                    Источник
+                    Программист: зарплата, что делает, как стать и где учиться
                   </a>
                 </cite>
               </blockquote>
               <blockquote>
                 <Text>
                   <i>
-                    ... Этот вариант грустный, и обычно он является следствием
+                    «... Этот вариант грустный, и обычно он является следствием
                     того, что человек, не верит в свои силы или находится в
                     плену у лени. Веру в себя — это к психологу, а с ленью нужно
-                    бороться.
+                    бороться.»
                   </i>
                 </Text>
                 <br></br>
-
                 <cite>
                   <a
                     class={styles.Source}
                     href="https://maxpfrontend.ru/vebinary/voprosy-dlya-sobesedovaniya-javascript-razrabotchika/"
                     target="_blank"
                   >
-                    Источник
+                    Список вопросов и ответов для собеседования javascript разработчиков﻿
                   </a>
                 </cite>
               </blockquote>
@@ -136,6 +135,7 @@ const App: Component = () => {
               SolidJS
             </a>
           </div>
+          <button class={styles.PrintButton} onClick={() => window.print()}>Распечатать резюме</button>
         </footer>
       </div>
     </div>

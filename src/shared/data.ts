@@ -6,6 +6,7 @@ import JavaScript from '../assets/javascript.svg';
 import { JSX } from 'solid-js/jsx-runtime';
 import Mui from '../assets/mui.svg';
 import Neovim from '../assets/neovim.svg';
+import NextJS from '../assets/next.svg';
 import React from '../assets/react.svg';
 import Redux from '../assets/redux.svg';
 import Rust from '../assets/rust.svg';
@@ -102,7 +103,7 @@ export const educationData: Education[] = [
 export const skillData: Skill[] = [
   {
     name: 'Front end',
-    skill: [JavaScript, TypeScript, React, Redux, Mui, Sass, Css3, Html5],
+    skill: [JavaScript, TypeScript, React, NextJS, Redux, Mui, Sass, Css3, Html5],
   },
   {
     name: 'OS',

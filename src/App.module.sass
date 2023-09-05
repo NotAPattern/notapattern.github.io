@@ -39,23 +39,28 @@ body
 
 .AppWrapper
   box-sizing: border-box
-  margin: 4rem 0 4rem 0
+  margin: 2rem 0 2rem 0
   padding: 0 2rem 0 2rem
   width: 100%
   max-width: 56.25rem
 
 .MainWrapper
-  margin-top: 4rem
+  margin-top: 2rem
   display: flex
   align-items: flex-start
   flex-direction: column
   gap: 3rem
+
+.PrintButton
+  margin-top: 2rem
 
 @media print
   .App
     background-color: #FFF
   .AppWrapper
     margin-bottom: 0
+  .PrintButton
+    display: none
   // @page
   //   size: A4
   //   margin-top: 0
