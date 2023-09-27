@@ -73,7 +73,43 @@ export const workExperienceData: WorkExperience[] = [
     startDate: new Date(2022, 11, 1),
     endDate: new Date(2023, 1, 31),
     vacancy: 'Веб-разработчик',
+    projects: [
+      {
+        name: 'Мелкие задачи на фрилансе',
+        description: 'Программирование на PHP с использованием WordPress.',
+      },
+    ],
   },
+  {
+    employer: {
+      name: 'Фрилансер',
+    },
+    startDate: new Date(2023, 5, 6),
+    endDate: new Date(2023, 5, 27),
+    vacancy: 'Fullstack-разработчик',
+    projects: [
+      {
+        name: 'InSchoolCrm',
+        url: 'https://www.figma.com/file/a3IWhsmpU8yww3worXbB21/',
+        description: 'CRM для учителей. В ссылке только Figma макет. Full stack на NextJS + TS.',
+      },
+    ],
+  },
+  {
+    employer: {
+      name: 'Edbee',
+    },
+    startDate: new Date(2023, 3, 21),
+    endDate: 'present',
+    vacancy: 'Веб-разработчик',
+    projects: [
+      {
+        name: 'Edbee',
+        url: 'https://edbee.ru/',
+        description: 'Экосистема цифрового обучения',
+      },
+    ],
+  }
 ];
 
 export const educationData: Education[] = [
