@@ -13,7 +13,11 @@ Site about me, my work experience and events.
 - [ ] "to offer a job" form,
 - [ ] @solid-primitives/i18n to text,
 - [ ] Yandex Music integration,
-- [x] change light/dark theme animation,
 - [ ] add characteristic from work,
 - [ ] button for print resume,
+- [ ] Add GitHub chip,
+- [ ] Add Telegramm blog chip.
+
+## Complete
+- [x] change light/dark theme animation,
 - [x] projects section.
