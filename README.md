@@ -15,8 +15,10 @@ Site about me, my work experience and events.
 - [ ] Yandex Music integration,
 - [ ] add characteristic from work,
 - [ ] button for print resume,
-- [ ] Add GitHub chip,
-- [ ] Add Telegramm blog chip.
+- [ ] add GitHub chip,
+- [ ] add Telegramm blog chip,
+- [ ] add events section with DevFest, stud. IT club,
+- [ ] add responsibilities and tasks in every company. 
 
 ## Complete
 - [x] change light/dark theme animation,
