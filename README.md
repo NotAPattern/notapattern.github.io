@@ -21,7 +21,8 @@ Site about me, my work experience and events.
 - [ ] add responsibilities and tasks in every company,
 - [ ] add face image,
 - [ ] move 'about me section' to end,
-- [ ] move uikit components to npm package.
+- [ ] move uikit components to npm package,
+- [ ] change job section like education section.
 
 ## Complete
 - [x] change light/dark theme animation,
