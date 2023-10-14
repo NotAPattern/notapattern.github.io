@@ -20,7 +20,8 @@ Site about me, my work experience and events.
 - [ ] add events section with DevFest, stud. IT club,
 - [ ] add responsibilities and tasks in every company,
 - [ ] add face image,
-- [ ] move 'about me section' to end.
+- [ ] move 'about me section' to end,
+- [ ] move uikit components to npm package.
 
 ## Complete
 - [x] change light/dark theme animation,
