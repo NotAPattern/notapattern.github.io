@@ -5,3 +5,4 @@ export { default as JobList } from './JobList/JobList';
 export { default as Section } from './Section/Section';
 export { default as SkillList } from './SkillList/SkillList';
 export { default as Title } from './Title/Title';
+export { default as Blockquote } from './Blockquote/Blockquote';

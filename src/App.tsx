@@ -1,4 +1,4 @@
-import { ChangeTheme, ChipList, EducationList, JobList, Section, SkillList, Title } from './components';
+import { Blockquote, ChangeTheme, ChipList, EducationList, JobList, Section, SkillList, Title } from './components';
 import { Chip, Text, useTheme } from '@uikit';
 import { educationData, skillData, workExperienceData } from '@shared/data';
 import { format, intervalToDuration } from 'date-fns';
@@ -61,47 +61,19 @@ const App: Component = () => {
                 занимаюсь front end разработкой. Увлекаюсь стоицизмом, люблю
                 музыку.
               </Text>
-              <blockquote cite="https://journal.tinkoff.ru/programmer/">
-                <Text>
-                  <i>
-                    «А программирование в принципе — если вы ленивы настолько,
-                      что готовы работать сутки, чтобы потом компьютер сделал вашу
-                      работу за минуту.»
-                  </i>
-                </Text>
-                <br />
-                <cite>
-                  <a
-                    class={styles.Source}
-                    href="https://journal.tinkoff.ru/programmer/"
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    Программист: зарплата, что делает, как стать и где учиться
-                  </a>
-                </cite>
-              </blockquote>
-              <blockquote>
-                <Text>
-                  <i>
-                    «... Этот вариант грустный, и обычно он является следствием
-                    того, что человек, не верит в свои силы или находится в
-                    плену у лени. Веру в себя — это к психологу, а с ленью нужно
-                    бороться.»
-                  </i>
-                </Text>
-                <br />
-                <cite>
-                  <a
-                    class={styles.Source}
-                    href="https://maxpfrontend.ru/vebinary/voprosy-dlya-sobesedovaniya-javascript-razrabotchika/"
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    Список вопросов и ответов для собеседования javascript разработчиков﻿
-                  </a>
-                </cite>
-              </blockquote>
+              <Blockquote text='А программирование в принципе — если вы ленивы настолько,
+                                что готовы работать сутки,
+                                чтобы потом компьютер сделал вашу работу за минуту.'
+              source='Программист: зарплата, что делает, как стать и где учиться'
+              link='https://journal.tinkoff.ru/programmer/'
+              />
+              <Blockquote text='... Этот вариант грустный, и обычно он является следствием
+                                того, что человек, не верит в свои силы или находится в
+                                плену у лени. Веру в себя — это к психологу, а с ленью нужно
+                                бороться.'
+              source='Список вопросов и ответов для собеседования javascript разработчиков﻿'
+              link='hhttps://maxpfrontend.ru/vebinary/voprosy-dlya-sobesedovaniya-javascript-razrabotchika/'
+              />
             </Section>
             <Section
               title={`💼 Опыт работы — 
