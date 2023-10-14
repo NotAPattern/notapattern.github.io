@@ -1,5 +1,5 @@
 import { Theme, ThemeInvoker } from '@shared/types';
-import { Component } from 'solid-js';
+import { Component, For } from 'solid-js';
 import { format } from 'date-fns';
 import styles from './JobList.module.sass';
 import { useTheme } from '@uikit';
@@ -16,10 +16,10 @@ const jobListPeriodThemeInvoker: ThemeInvoker = {
 };
 
 const JobList: Component<JobListProps> = (props) => {
-  const theme = props.theme ?? useTheme()?.[0] ?? 'light';
+  const theme = props.theme ?? useTheme()[0] ?? 'light';
   return (
     <ul class={styles.JobList}>
-      {props.data.reverse().map((job) => (
+      <For each={props.data.reverse()}>{(job) => (
         <li class={styles.JobList__item}>
           <h3 class={styles.JobList__employer}>
             {job.employer.name}{' '}
@@ -37,13 +37,13 @@ const JobList: Component<JobListProps> = (props) => {
               </time>
               {' – '}
               {job.endDate === 'present'
-                ? <time datetime={Date.now().toString()}>сейчас</time>
+                ? <time dateTime={Date.now().toString()}>сейчас</time>
                 : <time>{format(job.endDate, 'MM.yyyy')}</time>}
               )
             </small>
           </h3>
           <ul class={styles.ProjectList}>
-            {job.projects?.map((project) => (
+            {<For each={job.projects}>{(project) => (
               <li>
                 <a
                   classList={{
@@ -52,6 +52,7 @@ const JobList: Component<JobListProps> = (props) => {
                       project.url === undefined ? false : true,
                   }}
                   href={project.url}
+                  rel="noreferrer"
                   target="_blank"
                 >
                   {project.name}
@@ -60,10 +61,10 @@ const JobList: Component<JobListProps> = (props) => {
                   {project.description}
                 </p>
               </li>
-            ))}
+            )}</For>}
           </ul>
         </li>
-      ))}
+      )}</For>
     </ul>
   );
 };

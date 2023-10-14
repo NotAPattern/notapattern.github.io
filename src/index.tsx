@@ -1,7 +1,8 @@
 import { render } from 'solid-js/web';
 
 import App from './App';
-import { ThemeProvider } from "@uikit";
+import { Theme } from './types/theme';
+import { ThemeProvider } from '@uikit';
 import './index.css';
 
 const root = document.getElementById('root');
@@ -14,7 +15,7 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 
 render(
   () => (
-    <ThemeProvider theme={'light'}>
+    <ThemeProvider theme={Theme.LIGHT}>
       <App />
     </ThemeProvider>
   ),

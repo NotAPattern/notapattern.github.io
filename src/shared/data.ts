@@ -21,11 +21,11 @@ export type WorkExperience = {
   startDate: Date;
   endDate: Date | 'present';
   vacancy: string;
-  projects?: Array<{
+  projects?: {
     name: string;
     url?: string;
     description?: JSX.Element | string;
-  }>;
+  }[];
 };
 
 export type Education = {

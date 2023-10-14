@@ -1,8 +1,9 @@
-import { Accessor, Component, createMemo, JSX } from 'solid-js';
-import { Breakpoint, Theme, ThemeInvoker } from '@shared/types';
+import { Breakpoint, Theme, ThemeKeys } from '../../types/theme';
+import { Component, createMemo, JSX } from 'solid-js';
+import { createThemeInvoker } from '@shared/themeInvoker';
 import { Dynamic } from 'solid-js/web';
 import styles from './Chip.module.sass';
-import { useTheme } from "@uikit";
+import { useTheme } from '@uikit';
 
 // If you see simple solution think twice in TypeScript :)
 type Tag =
@@ -14,17 +15,14 @@ type ChipProps = {
   children: JSX.Element;
   as?: Tag;
   leftIcon?: JSX.Element;
-  theme?: Theme;
+  theme?: ThemeKeys;
   selected?: boolean;
   size?: Breakpoint;
   ref?: HTMLButtonElement | ((el: HTMLButtonElement) => void);
   href?: string;
 };
 
-const chipThemeInvoker: ThemeInvoker = {
-  light: styles.Chip_theme_light,
-  dark: styles.Chip_theme_dark,
-};
+const chipThemeInvoker = createThemeInvoker(styles, 'Chip');
 
 const Chip: Component<ChipProps> = (props) => {
   const {
@@ -37,9 +35,10 @@ const Chip: Component<ChipProps> = (props) => {
     ...otherProps
   } = props;
 
-  const Tag: Tag = as ?? 'button';
+  const { globalTheme } = useTheme();
+  const theme = props.theme ?? globalTheme() ?? Theme.LIGHT;
 
-  const theme: Accessor<Theme> | Theme = props.theme ?? useTheme()?.[0] ?? 'light';
+  const Tag: Tag = as ?? 'button';
 
   const selected = createMemo(() => props.selected);
 
@@ -49,7 +48,7 @@ const Chip: Component<ChipProps> = (props) => {
         [styles.Chip]: true,
         [styles.Chip_selected]: selected() ?? false,
         [styles.Chip_link]: as === 'a',
-        [chipThemeInvoker[typeof theme === 'function' ? theme() : theme]]:
+        [chipThemeInvoker[theme]]:
           true,
       }}
       component={Tag}

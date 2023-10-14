@@ -1,39 +1,36 @@
-import { Theme, ThemeInvoker } from '@shared/types';
-import { Component } from 'solid-js';
+import { Component, For } from 'solid-js';
+import { createThemeInvoker } from '@shared/themeInvoker';
 import { Education } from '@shared/data';
 import { format } from 'date-fns';
 import styles from './EducationList.module.sass';
 import { useTheme } from '@uikit';
+import { Theme } from '../../types/theme';
 
 type EducationListProps = {
   data: Education[];
   theme?: Theme;
 };
 
-const programmListPeriodThemeInvoker: ThemeInvoker = {
-  light: styles.ProgrammList__period_theme_light,
-  dark: styles.ProgrammList__period_theme_dark,
-};
+const programmListPeriodThemeInvoker = createThemeInvoker(styles, 'ProgrammList__period');
 
 const EducationList: Component<EducationListProps> = (props) => {
-  const theme = props.theme ?? useTheme()?.[0] ?? 'light';
+  const { globalTheme } = useTheme();
+  const theme = props.theme ?? globalTheme() ?? Theme.LIGHT;
 
   return (
     <ul class={styles.EducationList}>
-      {props.data.reverse().map((education) => (
+      <For each={props.data.reverse()}>{(education) => (
         <li class={styles.EducationList__item}>
           <h3 class={styles.EducationList__institution}>
             {education.institution.name}
           </h3>
           <ul class={styles.ProgrammList}>
-            {education.education.reverse().map((programm) => (
+            <For each={education.education.reverse()}>{(programm) => (
               <li class={styles.ProgrammList__item}>
                 <p
                   classList={{
                     [styles.ProgrammList__period]: true,
-                    [programmListPeriodThemeInvoker[
-                      typeof theme === 'function' ? theme() : theme
-                    ]]: true,
+                    [programmListPeriodThemeInvoker[theme]]: true,
                   }}
                 >
                   <time>{format(programm.startDate, 'yyyy')}</time> –{' '}
@@ -49,10 +46,10 @@ const EducationList: Component<EducationListProps> = (props) => {
                   </p>
                 </div>
               </li>
-            ))}
+            )}</For>
           </ul>
         </li>
-      ))}
+      )}</For>
     </ul>
   );
 };

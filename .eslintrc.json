@@ -6,16 +6,30 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "react",
-    "sort-destructure-keys"
+    "import",
+    "solid"
   ],
   "extends": [
+    "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/strict",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:jsonc/recommended-with-jsonc",
+    "plugin:storybook/recommended",
+    "plugin:solid/typescript"
   ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
   "rules": {
-    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-non-null-assertion": "error",
     "@typescript-eslint/sort-type-constituents": "error",
+    "@typescript-eslint/adjacent-overload-signatures": "error",
+    "@typescript-eslint/consistent-type-definitions": ["warn", "type"],
     "@typescript-eslint/member-ordering": [
       "error",
       {
@@ -26,20 +40,35 @@
           "method"
         ],
         "default": {
-          "memberTypes": [],
           "order": "alphabetically-case-insensitive"
         }
       }
     ],
-    "sort-destructure-keys/sort-destructure-keys": [
-      2,
+    "jsonc/sort-keys": [
+      "error",
+      "asc",
       {
-        "caseSensitive": false
+        "caseSensitive": true,
+        "natural": true,
+        "minKeys": 2,
+        "allowLineSeparatedGroups": true
       }
     ],
-    "react/jsx-sort-props": 2,
-    "react/sort-default-props": 2,
-    "semi": 2,
+    "indent": [
+      "error",
+      2
+    ],
+    "object-curly-spacing": ["error", "always"],
+    "sort-keys": [
+      "error",
+      "asc",
+      {
+        "caseSensitive": true,
+        "natural": true,
+        "minKeys": 2
+      }
+    ],
+    "semi": "error",
     "sort-imports": [
       "error",
       {
@@ -54,6 +83,11 @@
         ],
         "allowSeparatedGroups": true
       }
-    ]
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 2 }]
   }
 }

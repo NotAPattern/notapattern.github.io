@@ -1,27 +1,21 @@
-import { ChangeTheme, ChipList, EducationList, JobList, Section, SkillList, Title } from "./components";
-import { Chip, Text, useTheme } from "@uikit";
-import { educationData, skillData, workExperienceData } from "@shared/data";
-import { format, intervalToDuration } from "date-fns";
-import { Component } from "solid-js";
-import { formatTotalWorkExperience } from "./shared/formatTotalWorkExperience";
-import { noun as pluralNoun } from "plural-ru";
-import styles from "./App.module.sass";
-import Telegram from "./assets/telegram.svg";
-import { ThemeInvoker } from "@shared/types";
+import { ChangeTheme, ChipList, EducationList, JobList, Section, SkillList, Title } from './components';
+import { Chip, Text, useTheme } from '@uikit';
+import { educationData, skillData, workExperienceData } from '@shared/data';
+import { format, intervalToDuration } from 'date-fns';
+import { Component } from 'solid-js';
+import { createThemeInvoker } from '@shared/themeInvoker';
+import { formatTotalWorkExperience } from './shared/formatTotalWorkExperience';
+import { noun as pluralNoun } from 'plural-ru';
+import styles from './App.module.sass';
+import Telegram from './assets/telegram.svg';
 import 'normalize.css';
 
-const appThemeInvoker: ThemeInvoker = {
-  light: styles.App_theme_light,
-  dark: styles.App_theme_dark,
-};
 
-const createDateThemeInvoker: ThemeInvoker = {
-  light: styles.CreateDate_theme_light,
-  dark: styles.CreateDate_theme_dark,
-};
+const appThemeInvoker = createThemeInvoker(styles, 'App');
+const createDateThemeInvoker = createThemeInvoker(styles, 'CreateDate');
 
 const App: Component = () => {
-  const [theme] = useTheme()!;
+  const { globalTheme } = useTheme();
 
   const age = intervalToDuration({
     start: new Date(1999, 2, 27),
@@ -29,7 +23,7 @@ const App: Component = () => {
   }).years!;
 
   return (
-    <div classList={{ [styles.App]: true, [appThemeInvoker[theme()]]: true }}>
+    <div classList={{ [styles.App]: true, [appThemeInvoker[globalTheme()]]: true }}>
       <div class={styles.AppWrapper}>
         <header class={styles.Header}>
           <Title>Notapattern</Title>
@@ -63,7 +57,7 @@ const App: Component = () => {
                 </Chip>
               </ChipList>
               <Text>
-                Мне {age.toString()} {pluralNoun(age, "год", "года", "лет")},
+                Мне {age.toString()} {pluralNoun(age, 'год', 'года', 'лет')},
                 занимаюсь front end разработкой. Увлекаюсь стоицизмом, люблю
                 музыку.
               </Text>
@@ -75,11 +69,12 @@ const App: Component = () => {
                       работу за минуту.»
                   </i>
                 </Text>
-                <br></br>
+                <br />
                 <cite>
                   <a
                     class={styles.Source}
                     href="https://journal.tinkoff.ru/programmer/"
+                    rel="noreferrer"
                     target="_blank"
                   >
                     Программист: зарплата, что делает, как стать и где учиться
@@ -95,11 +90,12 @@ const App: Component = () => {
                     бороться.»
                   </i>
                 </Text>
-                <br></br>
+                <br />
                 <cite>
                   <a
                     class={styles.Source}
                     href="https://maxpfrontend.ru/vebinary/voprosy-dlya-sobesedovaniya-javascript-razrabotchika/"
+                    rel="noreferrer"
                     target="_blank"
                   >
                     Список вопросов и ответов для собеседования javascript разработчиков﻿
@@ -126,16 +122,23 @@ const App: Component = () => {
           <div
             classList={{
               [styles.CreateDate]: true,
-              [createDateThemeInvoker[theme()]]: true,
+              [createDateThemeInvoker[globalTheme()]]: true,
             }}
           >
-            Резюме создано <time>{format(new Date(), "dd.MM.yyyy")}</time><br></br>
-            ❤️ with{" "}
-            <a href="https://www.solidjs.com/" target="_blank">
+            Резюме создано <time>{format(new Date(), 'dd.MM.yyyy')}</time><br />
+            ❤️ with{' '}
+            <a
+              href="https://www.solidjs.com/"
+              rel="noreferrer"
+              target="_blank"
+            >
               SolidJS
             </a>
           </div>
-          <button class={styles.PrintButton} onClick={() => window.print()}>Распечатать резюме</button>
+          <button
+            class={styles.PrintButton}
+            onClick={() => window.print()}
+          >Распечатать резюме</button>
         </footer>
       </div>
     </div>
