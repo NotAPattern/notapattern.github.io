@@ -1,15 +1,23 @@
-import { Blockquote, ChangeTheme, ChipList, EducationList, JobList, Section, SkillList, Title } from './components';
+import {
+  Blockquote,
+  ChangeTheme,
+  ChipList,
+  EducationList,
+  JobList,
+  Section,
+  SkillList,
+  Title,
+} from '@components';
 import { Chip, Text, useTheme } from '@uikit';
 import { educationData, skillData, workExperienceData } from '@shared/data';
 import { format, intervalToDuration } from 'date-fns';
 import { Component } from 'solid-js';
 import { createThemeInvoker } from '@shared/themeInvoker';
-import { formatTotalWorkExperience } from './shared/formatTotalWorkExperience';
+import { formatTotalWorkExperience } from '@shared/formatTotalWorkExperience';
 import { noun as pluralNoun } from 'plural-ru';
 import styles from './App.module.sass';
-import Telegram from './assets/telegram.svg';
+import Telegram from '@assets/telegram.svg';
 import 'normalize.css';
-
 
 const appThemeInvoker = createThemeInvoker(styles, 'App');
 const createDateThemeInvoker = createThemeInvoker(styles, 'CreateDate');
@@ -18,12 +26,14 @@ const App: Component = () => {
   const { globalTheme } = useTheme();
 
   const age = intervalToDuration({
-    start: new Date(1999, 2, 27),
     end: new Date(),
-  }).years!;
+    start: new Date(1999, 2, 27),
+  }).years;
 
   return (
-    <div classList={{ [styles.App]: true, [appThemeInvoker[globalTheme()]]: true }}>
+    <div
+      classList={{ [styles.App]: true, [appThemeInvoker[globalTheme()]]: true }}
+    >
       <div class={styles.AppWrapper}>
         <header class={styles.Header}>
           <Title>Notapattern</Title>
@@ -57,22 +67,24 @@ const App: Component = () => {
                 </Chip>
               </ChipList>
               <Text>
-                Мне {age.toString()} {pluralNoun(age, 'год', 'года', 'лет')},
+                Мне {age?.toString()} {pluralNoun(age ?? 0, 'год', 'года', 'лет')},
                 занимаюсь front end разработкой. Увлекаюсь стоицизмом, люблю
                 музыку.
               </Text>
-              <Blockquote text='А программирование в принципе — если вы ленивы настолько,
+              <Blockquote
+                text="А программирование в принципе — если вы ленивы настолько,
                                 что готовы работать сутки,
-                                чтобы потом компьютер сделал вашу работу за минуту.'
-              source='Программист: зарплата, что делает, как стать и где учиться'
-              link='https://journal.tinkoff.ru/programmer/'
+                                чтобы потом компьютер сделал вашу работу за минуту."
+                source="Программист: зарплата, что делает, как стать и где учиться"
+                link="https://journal.tinkoff.ru/programmer/"
               />
-              <Blockquote text='... Этот вариант грустный, и обычно он является следствием
+              <Blockquote
+                text="... Этот вариант грустный, и обычно он является следствием
                                 того, что человек, не верит в свои силы или находится в
                                 плену у лени. Веру в себя — это к психологу, а с ленью нужно
-                                бороться.'
-              source='Список вопросов и ответов для собеседования javascript разработчиков﻿'
-              link='hhttps://maxpfrontend.ru/vebinary/voprosy-dlya-sobesedovaniya-javascript-razrabotchika/'
+                                бороться."
+                source="Список вопросов и ответов для собеседования javascript разработчиков﻿"
+                link="hhttps://maxpfrontend.ru/vebinary/voprosy-dlya-sobesedovaniya-javascript-razrabotchika/"
               />
             </Section>
             <Section
@@ -97,20 +109,16 @@ const App: Component = () => {
               [createDateThemeInvoker[globalTheme()]]: true,
             }}
           >
-            Резюме создано <time>{format(new Date(), 'dd.MM.yyyy')}</time><br />
+            Резюме создано <time>{format(new Date(), 'dd.MM.yyyy')}</time>
+            <br />
             ❤️ with{' '}
-            <a
-              href="https://www.solidjs.com/"
-              rel="noreferrer"
-              target="_blank"
-            >
+            <a href="https://www.solidjs.com/" rel="noreferrer" target="_blank">
               SolidJS
             </a>
           </div>
-          <button
-            class={styles.PrintButton}
-            onClick={() => window.print()}
-          >Распечатать резюме</button>
+          <button class={styles.PrintButton} onClick={() => window.print()}>
+            Распечатать резюме
+          </button>
         </footer>
       </div>
     </div>

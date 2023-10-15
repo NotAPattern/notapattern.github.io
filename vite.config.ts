@@ -1,7 +1,7 @@
+import { fileURLToPath } from "url";
 import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
-import solidSvg from 'vite-plugin-solid-svg';
-const path = require("path");
+import solidSvg from "vite-plugin-solid-svg";
 
 export default defineConfig({
   plugins: [solidPlugin(), solidSvg()],
@@ -12,9 +12,15 @@ export default defineConfig({
     target: "esnext",
   },
   resolve: {
-    alias: {
-      "@uikit": path.resolve(__dirname, "./src/uikit"),
-      "@shared": path.resolve(__dirname, "./src/shared"),
-    },
+    alias: [
+      // "@": path.resolve(__dirname, "./src"),
+      { find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) },
+      { find: '@uikit', replacement: fileURLToPath(new URL('./src/uikit', import.meta.url)) },
+      { find: '@shared', replacement: fileURLToPath(new URL('./src/shared', import.meta.url)) },
+      { find: '@types', replacement: fileURLToPath(new URL('./src/types', import.meta.url)) },
+      { find: '@components', replacement: fileURLToPath(new URL('./src/components', import.meta.url)) },
+      { find: '@public', replacement: fileURLToPath(new URL('./public', import.meta.url)) },
+      { find: '@assets', replacement: fileURLToPath(new URL('./src/assets', import.meta.url)) },
+    ],
   },
 });

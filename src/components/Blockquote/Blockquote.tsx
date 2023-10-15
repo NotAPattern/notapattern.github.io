@@ -1,6 +1,6 @@
-import { Text } from '@uikit';
-import { Component, JSX } from 'solid-js';
+import { Component } from 'solid-js';
 import styles from './Blockquote.module.sass';
+import { Text } from '@uikit';
 
 type BlockquoteProps= {
   text: string;

@@ -1,7 +1,7 @@
 import { Component } from 'solid-js';
 import { createThemeInvoker } from '@shared/themeInvoker';
 import styles from './ChangeTheme.module.sass';
-import { Theme } from '../../types/theme';
+import { Theme } from '@types';
 import { useTheme } from '@uikit';
 
 const changeThemeInvoker = createThemeInvoker(styles, 'ChangeTheme');

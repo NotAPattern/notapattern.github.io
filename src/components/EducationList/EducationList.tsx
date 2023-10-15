@@ -3,8 +3,8 @@ import { createThemeInvoker } from '@shared/themeInvoker';
 import { Education } from '@shared/data';
 import { format } from 'date-fns';
 import styles from './EducationList.module.sass';
-import { useTheme } from '@uikit';
 import { Theme } from '../../types/theme';
+import { useTheme } from '@uikit';
 
 type EducationListProps = {
   data: Education[];

@@ -1,7 +1,8 @@
-import { Theme, ThemeInvoker } from '@shared/types';
 import { Component, For } from 'solid-js';
+import { createThemeInvoker } from '@/shared/themeInvoker';
 import { format } from 'date-fns';
 import styles from './JobList.module.sass';
+import { Theme } from '@types';
 import { useTheme } from '@uikit';
 import { WorkExperience } from '@shared/data';
 
@@ -10,13 +11,11 @@ type JobListProps = {
   theme?: Theme;
 };
 
-const jobListPeriodThemeInvoker: ThemeInvoker = {
-  light: styles.JobList__period_theme_light,
-  dark: styles.JobList__period_theme_dark,
-};
+const jobListPeriodThemeInvoker = createThemeInvoker(styles, 'JobList');
 
 const JobList: Component<JobListProps> = (props) => {
-  const theme = props.theme ?? useTheme()[0] ?? 'light';
+  const { globalTheme } = useTheme();
+  const theme = props.theme ?? globalTheme() ?? 'light';
   return (
     <ul class={styles.JobList}>
       <For each={props.data.reverse()}>{(job) => (
@@ -26,9 +25,7 @@ const JobList: Component<JobListProps> = (props) => {
             <small
               classList={{
                 [styles.JobList__period]: true,
-                [jobListPeriodThemeInvoker[
-                  typeof theme === 'function' ? theme() : theme
-                ]]: true,
+                [jobListPeriodThemeInvoker[theme]]: true,
               }}
             >
               (

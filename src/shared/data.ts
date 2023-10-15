@@ -50,89 +50,81 @@ export const workExperienceData: WorkExperience[] = [
       name: 'Cron',
       url: 'https://cron.design',
     },
-    startDate: new Date(2022, 3, 20),
     endDate: new Date(2022, 10, 25),
-    vacancy: 'Веб-разработчик',
     projects: [
       {
+        description: 'Приложение для тренеровок в спортзале.',
         name: 'TRNR',
         url: 'https://trnr.ru',
-        description: 'Приложение для тренеровок в спортзале.',
       },
       {
+        description: 'Сайт для проверки сотруднков.',
         name: 'Secret',
         // url: "https://staffscan.ru",
-        description: 'Сайт для проверки сотруднков.',
       },
     ],
-  },
-  {
-    employer: {
-      name: 'Фрилансер',
-    },
-    startDate: new Date(2022, 11, 1),
-    endDate: new Date(2023, 1, 31),
+    startDate: new Date(2022, 3, 20),
     vacancy: 'Веб-разработчик',
-    projects: [
-      {
-        name: 'Мелкие задачи на фрилансе',
-        description: 'Программирование на PHP с использованием WordPress.',
-      },
-    ],
   },
   {
-    employer: {
-      name: 'Фрилансер',
-    },
-    startDate: new Date(2023, 5, 6),
-    endDate: new Date(2023, 5, 27),
-    vacancy: 'Fullstack-разработчик',
+    employer: { name: 'Фрилансер', },
+    endDate: new Date(2023, 1, 31),
     projects: [
       {
+        description: 'Программирование на PHP с использованием WordPress.',
+        name: 'Мелкие задачи на фрилансе',
+      },
+    ],
+    startDate: new Date(2022, 11, 1),
+    vacancy: 'Веб-разработчик',
+  },
+  {
+    employer: { name: 'Фрилансер', },
+    endDate: new Date(2023, 5, 27),
+    projects: [
+      {
+        description: 'CRM для учителей. В ссылке только Figma макет. Full stack на NextJS + TS.',
         name: 'InSchoolCrm',
         url: 'https://www.figma.com/file/a3IWhsmpU8yww3worXbB21/',
-        description: 'CRM для учителей. В ссылке только Figma макет. Full stack на NextJS + TS.',
       },
     ],
+    startDate: new Date(2023, 5, 6),
+    vacancy: 'Fullstack-разработчик',
   },
   {
-    employer: {
-      name: 'Edbee',
-    },
-    startDate: new Date(2023, 3, 21),
+    employer: { name: 'Edbee', },
     endDate: 'present',
-    vacancy: 'Веб-разработчик',
     projects: [
       {
+        description: 'Экосистема цифрового обучения',
         name: 'Edbee',
         url: 'https://edbee.ru/',
-        description: 'Экосистема цифрового обучения',
       },
     ],
+    startDate: new Date(2023, 3, 21),
+    vacancy: 'Веб-разработчик',
   }
 ];
 
 export const educationData: Education[] = [
   {
-    institution: {
-      name: 'Омский государственный университет им. Ф.М. Достоевского',
-    },
     education: [
       {
-        startDate: new Date(2017, 8, 1),
-        endDate: new Date(2021, 7, 1),
         degree: 'Бакалавр',
+        endDate: new Date(2021, 7, 1),
         faculty: { name: 'Факультет компьютерных наук' },
         speciality: 'Математика и компьютерные науки',
+        startDate: new Date(2017, 8, 1),
       },
       {
-        startDate: new Date(2021, 8, 1),
-        endDate: new Date(2025, 7, 1),
         degree: 'Магистратура',
+        endDate: new Date(2025, 7, 1),
         faculty: { name: 'Факультет цифровых технологий и кибербезопасности' },
         speciality: 'Прикладная математика и информатика',
+        startDate: new Date(2021, 8, 1),
       },
     ],
+    institution: { name: 'Омский государственный университет им. Ф.М. Достоевского', },
   },
 ];
 

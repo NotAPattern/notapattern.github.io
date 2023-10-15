@@ -4,7 +4,7 @@ import {
   JSX,
   useContext,
 } from 'solid-js';
-import { Theme, ThemeKeys } from '../../types/theme';
+import { Theme, ThemeKeys } from '@types';
 
 type ThemeProviderProps = {
   theme?: ThemeKeys;

@@ -9,9 +9,7 @@ export type ChipListProps = {
 const ChipList: Component<ChipListProps> = (props) => {
   return (
     <nav
-      classList={{
-        [styles.ChipList]: true,
-      }}
+      classList={{ [styles.ChipList]: true, }}
     >
       {props.children}
     </nav>

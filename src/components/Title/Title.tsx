@@ -1,8 +1,8 @@
-import { Accessor, Component, JSX } from 'solid-js';
-import { Theme, ThemeInvoker } from '@shared/types';
-import styles from './Title.module.sass';
-import { useTheme } from '@uikit';
+import { Component, JSX } from 'solid-js';
 import { createThemeInvoker } from '@shared/themeInvoker';
+import styles from './Title.module.sass';
+import { Theme } from '@types';
+import { useTheme } from '@uikit';
 
 export type TitleProps = {
   children: JSX.Element | string;

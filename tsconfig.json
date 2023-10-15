@@ -1,24 +1,47 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "target": "ESNext",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
     "module": "ESNext",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
+    "lib": ["DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "allowJs": true,
+
+    /* Bundler mode */
+    "moduleResolution": "Node",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": [
-      "vite/client",
-      "vite-plugin-solid-svg/types"
-    ],
-    "noEmit": true,
-    "isolatedModules": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+
+    /* Types */
+    "types": ["node", "vite/client"],
+
+    /* Paths */
     "baseUrl": "./",
     "paths": {
-      "@*": [
-        "./src/*"
-      ],
-    },
-  }
+      "@/*": ["src/*"],
+      "@uikit": ["src/uikit"],
+      "@uikit/*": ["src/uikit/*"],
+      "@shared/*": ["src/shared/*"],
+      "@assets/*": ["src/assets/*"],
+      "@styles/*": ["src/shared/styles/*"],
+      "@types": ["src/types"],
+      "@types/*": ["src/types/*"],
+      "@components": ["src/components"],
+      "@components/*": ["src/components/*"],
+      "@public/*": ["public/*"]
+    }
+  },
+  "exclude": ["node_modules", "build"],
+  "include": ["src", "vite.config.js"]
 }

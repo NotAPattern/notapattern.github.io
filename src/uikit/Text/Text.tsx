@@ -1,6 +1,6 @@
 import { Component, JSX } from 'solid-js';
 import styles from './Text.module.sass';
-import { ThemeKeys } from 'src/shared/types';
+import { ThemeKeys } from '@types';
 
 export type TextProps = {
   theme?: ThemeKeys;
@@ -12,7 +12,7 @@ const Text: Component<TextProps> = (props) => {
 
   return (
     <p
-      className={styles.Text}
+      class={styles.Text}
       {...otherProps}
     >
       {props.children}

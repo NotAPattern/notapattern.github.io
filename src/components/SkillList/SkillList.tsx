@@ -1,7 +1,7 @@
 import { Component, For } from 'solid-js';
 import { Skill } from '@shared/data';
 import styles from './SkillList.module.sass';
-import { Theme } from '@shared/types';
+import { Theme } from '@types';
 
 type SkillListProps = {
   data: Skill[];
