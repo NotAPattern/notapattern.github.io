@@ -36,7 +36,7 @@ const Chip: Component<ChipProps> = (props) => {
   } = props;
 
   const { globalTheme } = useTheme();
-  const theme = props.theme ?? globalTheme() ?? Theme.LIGHT;
+  const theme = () => props.theme ?? globalTheme() ?? Theme.LIGHT;
 
   const Tag: Tag = as ?? 'button';
 
@@ -48,7 +48,7 @@ const Chip: Component<ChipProps> = (props) => {
         [styles.Chip]: true,
         [styles.Chip_selected]: selected() ?? false,
         [styles.Chip_link]: as === 'a',
-        [chipThemeInvoker[theme]]:
+        [chipThemeInvoker[theme()]]:
           true,
       }}
       component={Tag}

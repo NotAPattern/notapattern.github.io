@@ -16,7 +16,6 @@ const Blockquote: Component<BlockquoteProps> = (props) => {
           «{props.text}»
         </i>
       </Text>
-      <br />
       <cite>
         <a
           class={styles.Source}

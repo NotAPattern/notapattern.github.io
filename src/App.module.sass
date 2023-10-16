@@ -7,10 +7,10 @@
   --theme-light-el-bg: #f2f2f2
 
   // TODO: change palette
-  --theme-dark-primary: #cbcbcb
-  --theme-dark-secondary: #8b8a8a
-  --theme-dark-bg: #303030
-  --theme-dark-el-bg: #ababab
+  --theme-dark-primary: #f0f0f0
+  --theme-dark-secondary: #cccccc
+  --theme-dark-bg: #333333
+  --theme-dark-el-bg: #cdcdcd
 
   --theme-link: #5F5FFF
   --theme-yellow: #FCCA00
@@ -52,26 +52,24 @@ body
   gap: 3rem
 
 .PrintButton
-  margin-top: 2rem
+  margin-top: 4rem
 
 @media print
+  body
+    margin: 25mm 25mm 25mm 25mm
   .App
     background-color: #FFF
+    display: block
   .AppWrapper
+    margin-top: 0
     margin-bottom: 0
+    display: block
+  .MainWrapper
+    display: block
+  section
+    margin: 3rem 0 0 0
   .PrintButton
     display: none
-  // @page
-  //   size: A4
-  //   margin-top: 0
-  //   margin-right: 2rem
-  //   margin-bottom: 4rem
-  //   margin-left: 2rem
-  //   @bottom-left
-  //     content: counter(page)
-  //   @bottom-center
-  //     content: string(title)
-  //     text-transform: uppercase
 
 .CreateDate
   margin: 4rem 0 0 0

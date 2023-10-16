@@ -8,8 +8,8 @@ import {
   Section,
   SkillList,
 } from '@components';
+import { Button, Text, useTheme } from '@uikit';
 import { chipListData, educationData, headerData, skillData, workExperienceData } from '@shared/data';
-import { Text, useTheme } from '@uikit';
 import { Component } from 'solid-js';
 import { createThemeInvoker } from '@shared/themeInvoker';
 import { format } from 'date-fns';
@@ -35,16 +35,16 @@ const App: Component = () => {
             <Section>
               <ChipList data={chipListData}/>
             </Section>
+            <Section title="🛠️ Навыки">
+              <SkillList data={skillData} />
+            </Section>
             <Section
-              title={`💼 Опыт работы — 
+              title={`💼 Опыт работы:  
               ${formatTotalWorkExperience(workExperienceData)}`}
             >
               <JobList data={workExperienceData} />
             </Section>
-            <Section title="🛠️ Навыки">
-              <SkillList data={skillData} />
-            </Section>
-            <Section title="🧑‍🎓 Образование">
+            <Section title="🧑‍🎓 Образование" toNewPage>
               <EducationList data={educationData} />
             </Section>
             {/* <Section title="📜 Сертификаты"></Section> */}
@@ -85,9 +85,7 @@ const App: Component = () => {
               SolidJS
             </a>
           </div>
-          <button class={styles.PrintButton} onClick={() => window.print()}>
-            Распечатать резюме
-          </button>
+          <Button onClick={() => window.print()} class={styles.PrintButton}>Распечатать резюме</Button>
         </footer>
       </div>
     </div>

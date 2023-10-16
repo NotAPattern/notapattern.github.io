@@ -1,8 +1,13 @@
 import Arch from '@assets/arch.svg';
 import Css3 from '@assets/css3.svg';
 import Docker from '@assets/docker.svg';
+import Eslint from '@assets/eslint.svg';
 import Face from '@assets/face.jpg';
+import Figma from '@assets/figma.svg';
+import Git from '@assets/git.svg';
 import Github from '@assets/github.svg';
+import GitHubBadge from '@assets/github-badge.svg';
+import GitLab from '@assets/gitlab.svg';
 import { HeaderProps } from '@components/Header/Header';
 import Html5 from '@assets/html5.svg';
 import { intervalToDuration } from 'date-fns';
@@ -11,13 +16,18 @@ import { JSX } from 'solid-js/jsx-runtime';
 import Mui from '@assets/mui.svg';
 import Neovim from '@assets/neovim.svg';
 import NextJS from '@assets/next.svg';
+import Php from '@assets/php.svg';
 import { noun as pluralNoun } from 'plural-ru';
 import React from '@assets/react.svg';
+import ReactRouter from '@assets/react-router.svg';
 import Redux from '@assets/redux.svg';
 import Rust from '@assets/rust.svg';
 import Sass from '@assets/sass.svg';
+import SolidJS from '@assets/solidjs.svg';
+import Storybook from '@assets/storybook.svg';
 import Telegram from '@assets/telegram.svg';
 import TypeScript from '@assets/typescript.svg';
+import Vite from '@assets/vite.svg';
 
 export type WorkExperience = {
   employer: {
@@ -32,6 +42,7 @@ export type WorkExperience = {
     url?: string;
     description?: JSX.Element | string;
   }[];
+  typeOfEmployment: string;
 };
 
 export type Education = {
@@ -62,7 +73,7 @@ const age = intervalToDuration({
 }).years;
 
 export const headerData: HeaderProps = {
-  description: <>Мне {age?.toString()} {pluralNoun(age ?? 0, 'год', 'года', 'лет')}. Я front end разработчик из Омска.</>, 
+  description: <>Мне {age?.toString()} {pluralNoun(age ?? 0, 'год', 'года', 'лет')}. Занимаюсь front end разработкой из Омска.</>, 
   faceSrc: Face,
   title: <>Привет 👋, <br /> я Никита Карацев</>
 };
@@ -105,7 +116,8 @@ export const workExperienceData: WorkExperience[] = [
       },
     ],
     startDate: new Date(2022, 3, 20),
-    vacancy: 'Веб-разработчик',
+    typeOfEmployment: 'Омск',
+    vacancy: 'Веб-разработчик'
   },
   {
     employer: { name: 'Фрилансер', },
@@ -117,6 +129,7 @@ export const workExperienceData: WorkExperience[] = [
       },
     ],
     startDate: new Date(2022, 11, 1),
+    typeOfEmployment: 'distant',
     vacancy: 'Веб-разработчик',
   },
   {
@@ -130,6 +143,7 @@ export const workExperienceData: WorkExperience[] = [
       },
     ],
     startDate: new Date(2023, 5, 6),
+    typeOfEmployment: 'distant',
     vacancy: 'Fullstack-разработчик',
   },
   {
@@ -143,6 +157,7 @@ export const workExperienceData: WorkExperience[] = [
       },
     ],
     startDate: new Date(2023, 3, 21),
+    typeOfEmployment: 'distant',
     vacancy: 'Веб-разработчик',
   }
 ];
@@ -172,14 +187,10 @@ export const educationData: Education[] = [
 export const skillData: Skill[] = [
   {
     name: 'Front end',
-    skill: [JavaScript, TypeScript, React, NextJS, Redux, Mui, Sass, Css3, Html5],
-  },
-  {
-    name: 'OS',
-    skill: [Arch],
+    skill: [JavaScript, TypeScript, Eslint, React, ReactRouter, NextJS, Redux, Mui, Sass, Css3, Html5, Figma, Storybook, SolidJS, Vite],
   },
   {
     name: 'Другие',
-    skill: [Neovim, Rust, Docker],
+    skill: [Arch, Neovim, Rust, Docker, Git, GitLab, GitHubBadge, Php],
   },
 ];

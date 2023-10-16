@@ -1,11 +1,11 @@
 @use "@uikit/Text/Text.module"
 
-.Chip
+.Button
   @extend .Text
   font-size: 1rem
   transition: background-color .14s ease-out, color .14s ease-out, filter .14s ease-out
-  border-radius: calc(1rem / 2)
-  padding: calc(1rem / 2) 1rem
+  border-radius: calc( 1rem / 2 )
+  padding: .625rem 1.25rem
   border: none
   font-weight: 400
   display: inline-flex
@@ -13,10 +13,8 @@
   justify-content: flex-start
   flex-direction: row
   white-space: nowrap
-  gap: 0.25rem
+  gap: .625rem
   text-decoration: none
-  &_link
-    color: var(--theme-link)
   &_theme_light
     background-color: var(--theme-light-el-bg)
     color: var(--theme-light-primary)
@@ -27,15 +25,3 @@
     color: var(--theme-light-primary)
     &:hover
       filter: brightness(110%)
-
-  &_selected
-    background-color: var(--theme-yellow)
-  &__icon
-    width: 100%
-    height: 100%
-    max-width: 1rem
-    max-height: 1rem
-    margin-right: calc( 1rem / 4 )
-    font-size: .8rem
-  &__children
-    text-decoration: underline

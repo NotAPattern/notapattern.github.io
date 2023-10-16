@@ -1,10 +1,11 @@
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import { fileURLToPath } from "url";
 import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
 import solidSvg from "vite-plugin-solid-svg";
 
 export default defineConfig({
-  plugins: [solidPlugin(), solidSvg()],
+  plugins: [solidPlugin(), solidSvg(), ViteImageOptimizer(), ],
   server: {
     port: 3000,
   },
@@ -13,7 +14,6 @@ export default defineConfig({
   },
   resolve: {
     alias: [
-      // "@": path.resolve(__dirname, "./src"),
       { find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) },
       { find: '@uikit', replacement: fileURLToPath(new URL('./src/uikit', import.meta.url)) },
       { find: '@shared', replacement: fileURLToPath(new URL('./src/shared', import.meta.url)) },

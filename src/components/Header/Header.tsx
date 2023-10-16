@@ -16,12 +16,12 @@ const headerThemeInvoker = createThemeInvoker(styles, 'Header');
 
 const Header: Component<HeaderProps> = (props) => {
   const { globalTheme } = useTheme();
-  const componentTheme = props.theme ?? globalTheme() ?? 'light';
+  const componentTheme = () => props.theme ?? globalTheme() ?? 'light';
 
   return (
     <header classList={{ [styles.Header]: true }}>
       <div class={styles.Header__wrapper}>
-        <h1 classList={{ [styles.Header__title]: true, [headerThemeInvoker[componentTheme]]: true }}>
+        <h1 classList={{ [styles.Header__title]: true, [headerThemeInvoker[componentTheme()]]: true }}>
           {props.title}
         </h1>
         <Text>{props.description}</Text>

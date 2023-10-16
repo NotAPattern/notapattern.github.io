@@ -10,7 +10,6 @@ Site about me, my work experience and events.
 
 ## To-do
 
-- [ ] "to offer a job" form,
 - [ ] @solid-primitives/i18n to text,
 - [ ] Yandex Music integration,
 - [ ] add characteristic from work,
