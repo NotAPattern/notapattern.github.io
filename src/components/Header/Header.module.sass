@@ -1,0 +1,27 @@
+@use "@uikit/Text/Text.module"
+
+.Header
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  text-align: left
+  &__wrapper
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    gap: 0.875rem
+  &__face
+    height: 7rem
+    width: 7rem
+    border-radius: 50%
+  &__title
+    @extend .Text
+    font-size: 3rem
+    font-weight: 700
+    margin: 0
+    padding: 0
+  &_theme_light
+    color: var(--theme-light-primary)
+  &_theme_dark
+    color: var(--theme-dark-primary)

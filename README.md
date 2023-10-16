@@ -14,16 +14,15 @@ Site about me, my work experience and events.
 - [ ] @solid-primitives/i18n to text,
 - [ ] Yandex Music integration,
 - [ ] add characteristic from work,
-- [ ] button for print resume,
-- [ ] add GitHub chip,
-- [ ] add Telegramm blog chip,
 - [ ] add events section with DevFest, stud. IT club,
 - [ ] add responsibilities and tasks in every company,
-- [ ] add face image,
 - [ ] move 'about me section' to end,
-- [ ] move uikit components to npm package,
 - [ ] change job section like education section.
 
 ## Complete
 - [x] change light/dark theme animation,
-- [x] projects section.
+- [x] projects section,
+- [x] button for print resume,
+- [x] add face image,
+- [x] add GitHub chip,
+- [x] add Telegramm blog chip.

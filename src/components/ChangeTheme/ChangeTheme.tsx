@@ -15,6 +15,7 @@ const ChangeTheme: Component = () => {
         [styles.ChangeTheme]: true,
         [changeThemeInvoker[globalTheme()]]: true,
       }}
+      aria-label="Сменить тему"
       onClick={() => setGlobalTheme(globalTheme() === Theme.LIGHT ? Theme.DARK : Theme.LIGHT)}
     />
   );

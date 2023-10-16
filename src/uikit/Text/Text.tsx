@@ -8,12 +8,10 @@ export type TextProps = {
 };
 
 const Text: Component<TextProps> = (props) => {
-  const { ...otherProps } = props;
-
   return (
     <p
       class={styles.Text}
-      {...otherProps}
+      {...props}
     >
       {props.children}
     </p>

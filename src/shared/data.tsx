@@ -1,17 +1,23 @@
-import Arch from '../assets/arch.svg';
-import Css3 from '../assets/css3.svg';
-import Docker from '../assets/docker.svg';
-import Html5 from '../assets/html5.svg';
-import JavaScript from '../assets/javascript.svg';
+import Arch from '@assets/arch.svg';
+import Css3 from '@assets/css3.svg';
+import Docker from '@assets/docker.svg';
+import Face from '@assets/face.jpg';
+import Github from '@assets/github.svg';
+import { HeaderProps } from '@components/Header/Header';
+import Html5 from '@assets/html5.svg';
+import { intervalToDuration } from 'date-fns';
+import JavaScript from '@assets/javascript.svg';
 import { JSX } from 'solid-js/jsx-runtime';
-import Mui from '../assets/mui.svg';
-import Neovim from '../assets/neovim.svg';
-import NextJS from '../assets/next.svg';
-import React from '../assets/react.svg';
-import Redux from '../assets/redux.svg';
-import Rust from '../assets/rust.svg';
-import Sass from '../assets/sass.svg';
-import TypeScript from '../assets/typescript.svg';
+import Mui from '@assets/mui.svg';
+import Neovim from '@assets/neovim.svg';
+import NextJS from '@assets/next.svg';
+import { noun as pluralNoun } from 'plural-ru';
+import React from '@assets/react.svg';
+import Redux from '@assets/redux.svg';
+import Rust from '@assets/rust.svg';
+import Sass from '@assets/sass.svg';
+import Telegram from '@assets/telegram.svg';
+import TypeScript from '@assets/typescript.svg';
 
 export type WorkExperience = {
   employer: {
@@ -43,6 +49,41 @@ export type Skill = {
   name: string;
   skill: JSX.Element[];
 };
+
+export type ChipListData = {
+  icon?: string;
+  link: string;
+  title: string;
+};
+
+const age = intervalToDuration({
+  end: new Date(),
+  start: new Date(1999, 2, 27),
+}).years;
+
+export const headerData: HeaderProps = {
+  description: <>Мне {age?.toString()} {pluralNoun(age ?? 0, 'год', 'года', 'лет')}. Я front end разработчик из Омска.</>, 
+  faceSrc: Face,
+  title: <>Привет 👋, <br /> я Никита Карацев</>
+};
+
+export const chipListData: ChipListData[] = [
+  {
+    icon: '📧', link: 'mailto:nikita.karatsev@gmail.com', title: 'nikita.karatsev@gmail.com'
+  },
+  {
+    icon: Github, link: 'https://github.com/notapattern', title: 'github.com/notapattern'
+  },
+  {
+    icon: '🌐', link: 'https://notapattern.github.io', title: 'notapattern.github.io'
+  },
+  {
+    icon: Telegram, link: 'https://t.me/notapattern', title: 't.me/notapattern'
+  },
+  {
+    icon: Telegram, link: 'https://t.me/notapatternblog', title: 't.me/notapatternblog'
+  },
+];
 
 export const workExperienceData: WorkExperience[] = [
   {

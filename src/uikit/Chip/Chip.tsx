@@ -62,7 +62,10 @@ const Chip: Component<ChipProps> = (props) => {
           {leftIcon}
         </span>
       }
-      {children}
+      {children &&
+      <span class={styles.Chip__children}>
+        {children}
+      </span>}
     </Dynamic>
   );
 };

@@ -3,20 +3,18 @@ import {
   ChangeTheme,
   ChipList,
   EducationList,
+  Header,
   JobList,
   Section,
   SkillList,
-  Title,
 } from '@components';
-import { Chip, Text, useTheme } from '@uikit';
-import { educationData, skillData, workExperienceData } from '@shared/data';
-import { format, intervalToDuration } from 'date-fns';
+import { chipListData, educationData, headerData, skillData, workExperienceData } from '@shared/data';
+import { Text, useTheme } from '@uikit';
 import { Component } from 'solid-js';
 import { createThemeInvoker } from '@shared/themeInvoker';
+import { format } from 'date-fns';
 import { formatTotalWorkExperience } from '@shared/formatTotalWorkExperience';
-import { noun as pluralNoun } from 'plural-ru';
 import styles from './App.module.sass';
-import Telegram from '@assets/telegram.svg';
 import 'normalize.css';
 
 const appThemeInvoker = createThemeInvoker(styles, 'App');
@@ -25,50 +23,34 @@ const createDateThemeInvoker = createThemeInvoker(styles, 'CreateDate');
 const App: Component = () => {
   const { globalTheme } = useTheme();
 
-  const age = intervalToDuration({
-    end: new Date(),
-    start: new Date(1999, 2, 27),
-  }).years;
-
   return (
     <div
       classList={{ [styles.App]: true, [appThemeInvoker[globalTheme()]]: true }}
     >
       <div class={styles.AppWrapper}>
-        <header class={styles.Header}>
-          <Title>Notapattern</Title>
-        </header>
+        <Header description={headerData.description} title={headerData.title} faceSrc={headerData.faceSrc} />
         <main>
           <div class={styles.MainWrapper}>
             <ChangeTheme />
-            <Section title="Привет 👋, меня зовут Никита Карацев">
-              <ChipList>
-                <Chip
-                  as="a"
-                  href="mailto:nikita.karatsev@gmail.com"
-                  target="_blank"
-                >
-                  📧 nikita.karatsev@gmail.com
-                </Chip>
-                <Chip
-                  as="a"
-                  href="https://notapattern.github.io"
-                  target="_blank"
-                >
-                  🌐 notapattern.github.io
-                </Chip>
-                <Chip
-                  as="a"
-                  href="https://t.me/notapattern"
-                  leftIcon={<Telegram />}
-                  target="_blank"
-                >
-                  Telegram
-                </Chip>
-              </ChipList>
+            <Section>
+              <ChipList data={chipListData}/>
+            </Section>
+            <Section
+              title={`💼 Опыт работы — 
+              ${formatTotalWorkExperience(workExperienceData)}`}
+            >
+              <JobList data={workExperienceData} />
+            </Section>
+            <Section title="🛠️ Навыки">
+              <SkillList data={skillData} />
+            </Section>
+            <Section title="🧑‍🎓 Образование">
+              <EducationList data={educationData} />
+            </Section>
+            {/* <Section title="📜 Сертификаты"></Section> */}
+            <Section title="Достижения">
               <Text>
-                Мне {age?.toString()} {pluralNoun(age ?? 0, 'год', 'года', 'лет')},
-                занимаюсь front end разработкой. Увлекаюсь стоицизмом, люблю
+                 Увлекаюсь стоицизмом, люблю
                 музыку.
               </Text>
               <Blockquote
@@ -87,19 +69,6 @@ const App: Component = () => {
                 link="hhttps://maxpfrontend.ru/vebinary/voprosy-dlya-sobesedovaniya-javascript-razrabotchika/"
               />
             </Section>
-            <Section
-              title={`💼 Опыт работы — 
-              ${formatTotalWorkExperience(workExperienceData)}`}
-            >
-              <JobList data={workExperienceData} />
-            </Section>
-            <Section title="🛠️ Навыки">
-              <SkillList data={skillData} />
-            </Section>
-            <Section title="🧑‍🎓 Образование">
-              <EducationList data={educationData} />
-            </Section>
-            {/* <Section title="📜 Сертификаты"></Section> */}
           </div>
         </main>
         <footer>
