@@ -186,7 +186,7 @@ export const educationData: Education[] = [
 export const additionalData: JSX.Element[] = [
   <Text>Рекомендация от директора ООО "Кронмедиа".</Text>,
   <Text>Главный организатор <a href='https://vk.com/student_it' target='_blank'>Студенческого IT-клуба</a>.</Text>,
-  <Text>Ведущий трека Golang на <a href='https://vk.com/devfestomsk' target='_blank'>DevFest</a>. Мне интересен Golang еще :)</Text>,
+  <Text>Ведущий трека Golang на <a href='https://t.me/notapatternblog/7' target='_blank'>DevFest</a>. Мне интересен Golang еще :)</Text>,
   <Text>Product manager команды "робот-уборщик", которая <a href='https://vk.com/studentlabs?w=wall-205076048_227' target='_blank'>выиграла в студенческой IT-лаборатории</a>.</Text>,
   <Text>Хобби: музыка, художественная литература, пет-проекты, математика.</Text>,
 ];
