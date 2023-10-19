@@ -6,17 +6,13 @@ Site about me, my work experience and events.
 
 - Solid JS,
 - SASS,
-- TypeScript.
+- TypeScript,
+- Vite.
 
 ## To-do
 
 - [ ] @solid-primitives/i18n to text,
 - [ ] Yandex Music integration,
-- [ ] add characteristic from work,
-- [ ] add events section with DevFest, stud. IT club,
-- [ ] add responsibilities and tasks in every company,
-- [ ] move 'about me section' to end,
-- [ ] change job section like education section.
 
 ## Complete
 - [x] change light/dark theme animation,
@@ -24,4 +20,9 @@ Site about me, my work experience and events.
 - [x] button for print resume,
 - [x] add face image,
 - [x] add GitHub chip,
-- [x] add Telegramm blog chip.
+- [x] add Telegramm blog chip,
+- [x] add characteristic from work (add mention in additional section),
+- [x] add responsibilities and tasks in every company.
+- [x] add events section with DevFest, stud. IT club,
+- [x] move 'about me section' to end,
+- [x] change job section like education section.
