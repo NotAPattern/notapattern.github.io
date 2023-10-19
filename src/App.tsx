@@ -1,4 +1,6 @@
+import { additionalData, chipListData, educationData, headerData, skillData, workExperienceData } from '@shared/data';
 import {
+  AdditionalList,
   Blockquote,
   ChangeTheme,
   ChipList,
@@ -8,8 +10,7 @@ import {
   Section,
   SkillList,
 } from '@components';
-import { Button, Text, useTheme } from '@uikit';
-import { chipListData, educationData, headerData, skillData, workExperienceData } from '@shared/data';
+import { Button, useTheme } from '@uikit';
 import { Component } from 'solid-js';
 import { createThemeInvoker } from '@shared/themeInvoker';
 import { format } from 'date-fns';
@@ -44,15 +45,12 @@ const App: Component = () => {
             >
               <JobList data={workExperienceData} />
             </Section>
-            <Section title="🧑‍🎓 Образование" toNewPage>
+            <Section title="🧑‍🎓 Образование" avoidBreak>
               <EducationList data={educationData} />
             </Section>
             {/* <Section title="📜 Сертификаты"></Section> */}
-            <Section title="Достижения">
-              <Text>
-                 Увлекаюсь стоицизмом, люблю
-                музыку.
-              </Text>
+            <Section title="📝 Дополнительно">
+              <AdditionalList data={additionalData}/>
               <Blockquote
                 text="А программирование в принципе — если вы ленивы настолько,
                                 что готовы работать сутки,
@@ -67,6 +65,10 @@ const App: Component = () => {
                                 бороться."
                 source="Список вопросов и ответов для собеседования javascript разработчиков﻿"
                 link="hhttps://maxpfrontend.ru/vebinary/voprosy-dlya-sobesedovaniya-javascript-razrabotchika/"
+              />
+              <Blockquote
+                text="Ты то, что ты ешь"
+                source="Гиппократ"
               />
             </Section>
           </div>

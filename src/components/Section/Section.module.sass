@@ -6,9 +6,9 @@
   align-items: flex-start
   gap: 1rem
   width: 100%
-  &_toNewPage
+  &_avoidBreak
     @media print
-      break-before: page
+      break-inside: avoid
 
 .SectionHeader
   @extend .Text

@@ -1,3 +1,4 @@
+export { default as AdditionalList } from './AdditionalList/AdditionalList';
 export { default as ChangeTheme } from './ChangeTheme/ChangeTheme';
 export { default as ChipList } from './ChipList/ChipList';
 export { default as EducationList } from './EducationList/EducationList';

@@ -44,30 +44,18 @@ const JobList: Component<JobListProps> = (props) => {
             </Text>
             <div>
               <h3 class={styles.JobList__employer}>
-                {job.employer.name}{' '}
+                {job.employer.name}
               </h3>
               <Text>{job.vacancy}, {formatTypeOfEmployment(job.typeOfEmployment)}.</Text>
-              {/* <ul class={styles.ProjectList}>
-                {<For each={job.projects}>{(project) => (
+              <br/>
+              <Text><b>Обязанности:</b></Text>
+              <ul class={styles.ResponsibilitiesList}>
+                {<For each={job.responsibilities}>{(responsibility) => (
                   <li>
-                    <a
-                      classList={{
-                        [styles.ProjectList__item]: true,
-                        [styles.ProjectList__item_link]:
-                      project.url === undefined ? false : true,
-                      }}
-                      href={project.url}
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      {project.name}
-                    </a>
-                    <p class={styles.ProjectList__description}>
-                      {project.description}
-                    </p>
+                    {responsibility}
                   </li>
                 )}</For>}
-              </ul> */}
+              </ul>
             </div>
           </li>
         </>
