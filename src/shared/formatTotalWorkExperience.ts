@@ -23,7 +23,7 @@ const countTotalWorkExperienceInMonths = (data: WorkExperience[]): number => {
       differenceInCalendarMonths(
         job.endDate === 'present' ? Date.now() : job.endDate,
         job.startDate
-      )
+      ) + 1
     );
   }, 0);
 };
