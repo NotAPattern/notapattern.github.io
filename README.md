@@ -13,6 +13,7 @@ Site about me, my work experience and events.
 
 - [ ] @solid-primitives/i18n to text,
 - [ ] Yandex Music integration,
+- [ ] add pet projects.
 
 ## Complete
 - [x] change light/dark theme animation,
