@@ -1,4 +1,4 @@
-import { Breakpoint, Theme, ThemeKeys } from '../../types/theme';
+import { Breakpoint, Theme, ThemeKeys } from '@types';
 import { Component, createMemo, JSX } from 'solid-js';
 import { createThemeInvoker } from '@shared/themeInvoker';
 import { Dynamic } from 'solid-js/web';

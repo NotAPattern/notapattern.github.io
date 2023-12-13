@@ -1,7 +1,9 @@
 import {
+  Accessor,
   createContext,
   createSignal,
   JSX,
+  Setter,
   useContext,
 } from 'solid-js';
 import { Theme, ThemeKeys } from '@types';
@@ -14,10 +16,15 @@ type ThemeProviderProps = {
 type ContextType = ReturnType<typeof useThemeValue>;
 type ThemeProvider<P = ThemeProviderProps> = (props: P) => JSX.Element;
 
-function useThemeValue(defaultTheme?: ThemeKeys) {
-  const [globalTheme, setGlobalTheme] = createSignal(defaultTheme ?? Theme.LIGHT);
-  return { globalTheme , setGlobalTheme }; 
-} 
+function useThemeValue(defaultTheme?: ThemeKeys): {
+  globalTheme: Accessor<ThemeKeys>;
+  setGlobalTheme: Setter<ThemeKeys>;
+} | undefined {
+  const [globalTheme, setGlobalTheme] = createSignal(
+    defaultTheme ?? Theme.LIGHT
+  );
+  return { globalTheme, setGlobalTheme };
+}
 
 const ThemeContext = createContext<ContextType>();
 
@@ -28,9 +35,7 @@ const ThemeProvider: ThemeProvider = (props) => {
   const theme = useThemeValue(props.theme);
 
   return (
-    <ThemeContext.Provider value={theme}>
-      {children()}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={theme}>{children()}</ThemeContext.Provider>
   );
 };
 

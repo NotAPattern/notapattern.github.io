@@ -45,7 +45,7 @@ const App: Component = () => {
             >
               <JobList data={workExperienceData} />
             </Section>
-            <Section title="🧑‍🎓 Образование" avoidBreak>
+            <Section title="🎓 Образование" avoidBreak>
               <EducationList data={educationData} />
             </Section>
             {/* <Section title="📜 Сертификаты"></Section> */}
