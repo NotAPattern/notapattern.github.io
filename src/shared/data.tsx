@@ -124,7 +124,7 @@ export const chipListData: ChipListData[] = [
 export const workExperienceData: WorkExperience[] = [
   {
     employer: { name: 'Фриланс' },
-    endDate: new Date(2022, 11, 4),
+    endDate: new Date(2023, 3, 20),
     responsibilities: [
       <Text>
         Разработка и интеграция модулей на PHP для WordPress, WooCommerce.
@@ -142,7 +142,7 @@ export const workExperienceData: WorkExperience[] = [
         .
       </Text>,
     ],
-    startDate: new Date(2023, 3, 20),
+    startDate: new Date(2022, 11, 4),
     typeOfEmployment: 'distant',
     vacancy: 'Fullstack-разработчик',
   },
@@ -151,7 +151,7 @@ export const workExperienceData: WorkExperience[] = [
       name: 'ООО "Кронмедиа"',
       url: 'https://cron.design',
     },
-    endDate: new Date(2022, 10, 25),
+    endDate: new Date(2022, 11, 1),
     responsibilities: [
       <Text>
         Разработка фитнес-приложения{' '}
@@ -216,7 +216,7 @@ export const workExperienceData: WorkExperience[] = [
       </Text>,
       <Text>Деплой проекта на тестовый и продакш серверы.</Text>,
     ],
-    startDate: new Date(2023, 3, 21),
+    startDate: new Date(2022, 11, 10),
     typeOfEmployment: 'distant',
     vacancy: 'Веб-разработчик',
   },
